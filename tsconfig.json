@@ -6,7 +6,7 @@
     "noFallthroughCasesInSwitch": true,
     "declaration": true,
     "outDir": "./lib",
-    "include": ["src/**/*"],
+    "rootDir": "./src",
     "exclude": ["node_modules", "lib"],
     "declarationDir": "lib",
     "allowJs": true,
