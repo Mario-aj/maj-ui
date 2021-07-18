@@ -6,5 +6,15 @@
   "repository": "https://github.com/Mario-aj/react-ui.git",
   "author": "Mario-alfredo-jorge <mariojorge1997@mail.ru>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "devDependencies": {
+    "@types/react": "^17.0.14",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
 }
