@@ -1,0 +1,10 @@
+{
+  "name": "@maj/react-ui",
+  "version": "1.0.0",
+  "description": "My react UI lib",
+  "main": "index.js",
+  "repository": "https://github.com/Mario-aj/react-ui.git",
+  "author": "Mario-alfredo-jorge <mariojorge1997@mail.ru>",
+  "license": "MIT",
+  "private": false
+}
