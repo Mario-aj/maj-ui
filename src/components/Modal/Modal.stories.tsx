@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory } from '@storybook/react';
 
-import { Modal } from '.';
+import { Modal, ModalProps } from '.';
 
 export default {
   title: 'Components/Modal',
@@ -9,12 +9,17 @@ export default {
   argTypes: {
     children: '',
     className: '',
+    isOpen: false,
+    onClose: (): void => {},
   },
 };
 
-const Template: ComponentStory<typeof Modal> = (args: any) => (
+const Template: ComponentStory<typeof Modal> = (args: ModalProps) => (
   <Modal {...args} />
 );
 
 export const Base = Template.bind({});
-Base.args = {};
+Base.args = {
+  children: 'Welcome to my modal component',
+  isOpen: true,
+};
