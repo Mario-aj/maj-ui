@@ -34,7 +34,7 @@ const ControlledModal = ({ isOpen }: ModalProps): JSX.Element => {
         Open modal
       </button>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <div>
+        <div className="mb-4">
           <header>
             <p>Income</p>
           </header>
