@@ -1,52 +1,39 @@
 import React, { useState } from 'react';
-import { ComponentStory } from '@storybook/react';
 
 import { Modal, ModalProps } from '.';
+import docs from './Modal.doc.mdx';
 
 export default {
   title: 'Components/Modal',
   component: Modal,
+  parameters: {
+    docs: {
+      page: docs,
+    },
+    layout: 'centered',
+  },
   argTypes: {
-    children: '',
+    children: 'Welcome, this my project',
     className: '',
     isOpen: false,
     onClose: (): void => {},
   },
 };
 
-const Template: ComponentStory<typeof Modal> = (args: ModalProps) => (
-  <Modal {...args} />
-);
+const BaseModal = (args: ModalProps) => <Modal {...args} />;
 
-export const Base = Template.bind({});
-Base.args = {
-  children: 'Welcome to my modal component',
-  isOpen: true,
-};
-
-export const InterativeModal = (): JSX.Element => {
-  const [isTransactionModalOpen, setIsTransactionModalOpen] = useState(false);
-
-  const handleTransactionModalOpen = () => {
-    setIsTransactionModalOpen(true);
-  };
-
-  const handleTransactionModalClose = () => {
-    setIsTransactionModalOpen(false);
-  };
+const ControlledModal = ({ isOpen }: ModalProps): JSX.Element => {
+  const [isModalOpen, setIsModalOpen] = useState(isOpen);
 
   return (
-    <div className="flex-col items-center justify-center w-full">
+    <>
       <button
         className="px-2 py-1 text-white bg-red-400 rounded"
-        onClick={handleTransactionModalOpen}
+        onClick={() => setIsModalOpen(true)}
       >
         Open modal
       </button>
-      <Modal
-        isOpen={isTransactionModalOpen}
-        onClose={handleTransactionModalClose}
-      >
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <div>
           <header>
             <p>Income</p>
@@ -61,6 +48,25 @@ export const InterativeModal = (): JSX.Element => {
           <strong>-$2000,00</strong>
         </div>
       </Modal>
-    </div>
+    </>
   );
+};
+
+export const Base = (args: ModalProps): JSX.Element => (
+  <>
+    <h1>play with controller 'isOpen' below</h1>
+    <BaseModal {...args} />
+  </>
+);
+
+Base.args = {
+  isOpen: false,
+  children: 'This a basic modal use!',
+};
+
+export const Controlled = (args: ModalProps): JSX.Element => (
+  <ControlledModal {...args} />
+);
+Controlled.args = {
+  isOpen: false,
 };

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import classnames from 'classnames';
 
 export interface ModalProps {
@@ -29,14 +29,27 @@ export const Modal = ({
   isOpen = false,
   onClose,
 }: ModalProps): JSX.Element => {
+  useEffect(() => {
+    document.addEventListener('keydown', closeOnKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', closeOnKeyDown);
+    };
+  });
+
+  const closeOnKeyDown = (e: any) => {
+    if ((e.charCode || e.keyCode) === 27) onClose();
+  };
+
   return (
     <div
       className={classnames(
-        'fixed top-0 bottom-0 left-0 right-0 opacity-0 pointer-events-none transition-all duration-300 ease-in-out flex items-center justify-center bg-gray-600',
+        'fixed top-0 bottom-0 left-0 right-0 z-50 opacity-0 pointer-events-none transition-all duration-300 ease-in-out flex items-center justify-center',
         {
           'opacity-100 pointer-events-auto': isOpen,
         }
       )}
+      style={{ background: 'rgba(0, 0, 0, 0.7)' }}
     >
       <div
         className={classnames(
@@ -52,7 +65,7 @@ export const Modal = ({
         >
           x
         </button>
-        <div className={classnames('mt-8 w-96', { className })}>{children}</div>
+        <div className={classnames('mt-8 w-96', className)}>{children}</div>
       </div>
     </div>
   );
