@@ -9,5 +9,8 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  parameters: {
+    layout: 'centered',
+  },
   viewMode: 'canvas',
 };
