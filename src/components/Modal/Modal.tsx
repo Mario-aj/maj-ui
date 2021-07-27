@@ -50,6 +50,7 @@ export const Modal = ({
         }
       )}
       style={{ background: 'rgba(0, 0, 0, 0.7)' }}
+      onClick={onClose}
     >
       <div
         className={classnames(
@@ -58,6 +59,7 @@ export const Modal = ({
             'translate-y-0': isOpen,
           }
         )}
+        onClick={(e) => e.stopPropagation()}
       >
         <button
           className="absolute px-3 py-1 text-white transition-opacity duration-300 bg-gray-500 rounded-full cursor-pointer top-1 right-1 bg-none opacity-80 hover:opacity-100 focus:outline-none"
