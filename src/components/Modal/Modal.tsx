@@ -60,7 +60,7 @@ export const Modal = ({
     >
       <div
         className={classnames(
-          'relative flex flex-col p-4 bg-white -translate-y-52 rounded-md box-border transition-all duration-300 ease-in-out ',
+          'relative flex flex-col p-4 -translate-y-52 bg-white rounded-md box-border transition-all duration-300 ease-in-out ',
           {
             'translate-y-0': isOpen,
           }
@@ -78,7 +78,7 @@ export const Modal = ({
         </div>
         <div
           className={classnames(
-            'mt-6 w-96 h-72 overflow-y-scroll custom-scrollbar',
+            'mt-6 w-96 overflow-y-scroll custom-scrollbar',
             className
           )}
         >

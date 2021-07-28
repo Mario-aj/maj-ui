@@ -21,7 +21,11 @@ export default {
   },
 };
 
-const ControlledModal = ({ isOpen, title }: ModalProps): JSX.Element => {
+const ControlledModal = ({
+  isOpen,
+  title,
+  className,
+}: ModalProps): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = useState(isOpen);
   const items = new Array(20).fill(0);
 
@@ -37,6 +41,7 @@ const ControlledModal = ({ isOpen, title }: ModalProps): JSX.Element => {
         title={title}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        className={className}
       >
         {items.map((_, index) => (
           <div className="p-2 mb-2 border-b border-gray-500 rounded-md shadow-inner">
@@ -83,4 +88,5 @@ export const WithScroll = (args: ModalProps): JSX.Element => (
 WithScroll.args = {
   isOpen: false,
   title: 'Modal title',
+  className: 'h-72',
 };
