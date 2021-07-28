@@ -15,6 +15,10 @@
 
 - There is not first version yet.
 
+## Doc.
+
+So, you can find doc of each component [here](https://github.com/Mario-aj/react-ui/blob/dev/src/components/Modal/Modal.doc.mdx)
+
 ## Contributing
 
 I'd love to have your helping hand on <strong>@maj/react-ui</strong>! See <a href="https://github.com/Mario-aj/react-ui/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md</a> for more information on how to get started.
