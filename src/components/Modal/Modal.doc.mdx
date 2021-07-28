@@ -1,15 +1,51 @@
-import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  Story,
+  Canvas,
+  ArgsTable,
+  Props,
+  Preview,
+} from '@storybook/addon-docs/blocks';
+import { Modal } from './Modal';
 
 # Modal
 
-The Modal component inheritely uses [React Modal](https://github.com/reactjs/react-modal) component and follows the WAI-ARIA Modal Pattern.
+The modal component was built based on [React Modal](https://github.com/reactjs/react-modal), and follows all the patterns of a modal, thus giving the possibility to close the modal using the Esc key.
 
-<Canvas>
-  <Story id="components-modal--base" />
-</Canvas>
+# Props
 
-<ArgsTable />
+<Props of={Modal} />
 
 # Usage
 
-> Note: considering that this library has not yet been published in its first version, we decided not to make it available for use yet. As soon as we have the first version published, we will document the use of all components already available.
+> Note: considering that this library has not yet been published, the path of import is fictitious
+
+```jsx
+import { Modal } from '@maj/react-ui';
+
+const ListItems = ({ items }): JSX.Element => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <>
+      <button
+        className="px-3 py-2 text-white bg-red-500 rounded"
+        onClick={() => setIsModalOpen(true)}
+      >
+        Click to open modal
+      </button>
+      <Modal
+        title="List items"
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        className="max-h-72"
+      >
+        {items.map((_, index) => (
+          <div className="p-2 mb-2 border-b border-gray-500 rounded-md shadow-inner">
+            item {index}
+          </div>
+        ))}
+      </Modal>
+    </>
+  );
+};
+```
