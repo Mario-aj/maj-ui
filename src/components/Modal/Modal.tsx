@@ -8,6 +8,11 @@ export interface ModalProps {
   isOpen: boolean;
 
   /*
+    The title of modal.
+  */
+  title?: string;
+
+  /*
     Classes that will be applied to the modal content.
   */
   className?: string;
@@ -24,9 +29,10 @@ export interface ModalProps {
 }
 
 export const Modal = ({
-  className,
+  className = '',
   children,
   isOpen = false,
+  title = '',
   onClose,
 }: ModalProps): JSX.Element => {
   useEffect(() => {
@@ -61,14 +67,17 @@ export const Modal = ({
         )}
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          className="absolute px-3 py-1 text-white transition-opacity duration-300 bg-gray-500 rounded-full cursor-pointer top-1 right-1 bg-none opacity-80 hover:opacity-100 focus:outline-none"
-          onClick={onClose}
-        >
-          x
-        </button>
+        <div className="flex items-center justify-between">
+          <h1 className="m-0 text-lg font-bold">{title}</h1>
+          <button
+            className="absolute px-3 py-1 text-white transition-opacity duration-300 bg-gray-500 rounded-full cursor-pointer top-1 right-1 bg-none opacity-80 hover:opacity-100 focus:outline-none"
+            onClick={onClose}
+          >
+            x
+          </button>
+        </div>
         <div
-          className={classnames('mt-12 w-96 h-72 overflow-y-scroll', className)}
+          className={classnames('mt-6 w-96 h-72 overflow-y-scroll', className)}
         >
           {children}
         </div>

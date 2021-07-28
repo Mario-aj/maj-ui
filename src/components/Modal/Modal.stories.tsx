@@ -16,11 +16,12 @@ export default {
     children: 'Welcome, this my project',
     className: '',
     isOpen: false,
+    title: 'Title of modal',
     onClose: (): void => {},
   },
 };
 
-const ControlledModal = ({ isOpen }: ModalProps): JSX.Element => {
+const ControlledModal = ({ isOpen, title }: ModalProps): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = useState(isOpen);
   const items = new Array(20).fill(0);
 
@@ -32,7 +33,11 @@ const ControlledModal = ({ isOpen }: ModalProps): JSX.Element => {
       >
         Click to open modal
       </button>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+      <Modal
+        title={title}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      >
         {items.map((_, index) => (
           <div className="p-2 mb-2 border-b border-gray-500 rounded-md shadow-inner">
             item {index}
@@ -43,7 +48,7 @@ const ControlledModal = ({ isOpen }: ModalProps): JSX.Element => {
   );
 };
 
-const BaseModal = ({ isOpen, children }: ModalProps): JSX.Element => {
+const BaseModal = ({ title, isOpen, children }: ModalProps): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = useState(isOpen);
   return (
     <div>
@@ -53,7 +58,11 @@ const BaseModal = ({ isOpen, children }: ModalProps): JSX.Element => {
       >
         Click to open modal
       </button>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+      <Modal
+        title={title}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      >
         {children}
       </Modal>
     </div>
@@ -65,6 +74,7 @@ export const Base = (args: ModalProps): JSX.Element => <BaseModal {...args} />;
 Base.args = {
   isOpen: false,
   children: 'This a basic modal use!',
+  title: 'Modal title',
 };
 
 export const WithScroll = (args: ModalProps): JSX.Element => (
@@ -72,4 +82,5 @@ export const WithScroll = (args: ModalProps): JSX.Element => (
 );
 WithScroll.args = {
   isOpen: false,
+  title: 'Modal title',
 };
