@@ -1,0 +1,33 @@
+import {
+  ArgsTable,
+  Canvas,
+  Story,
+  Preview,
+} from '@storybook/addon-docs/blocks';
+import { Button } from '.';
+
+# Button
+
+Buttons allow users to perform an action or navigate to another page.
+
+## Props
+
+<ArgsTable of={Button} />
+
+# Preview
+
+<Preview>
+  <Button label="primary" type="button" onClick={() => {}} />
+</Preview>
+
+## Usage
+
+> Note: considering that this library has not yet been published, the path of import is fictitious
+
+```jsx
+import { Button } from '@maj/react-ui';
+
+const NavButton = (): JSX.Element => (
+  <Button label="next" type="button" onClick={() => {}} />
+);
+```
