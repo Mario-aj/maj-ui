@@ -17,7 +17,7 @@
 
 ## Doc.
 
-So, you can find doc of each component [here](https://github.com/Mario-aj/react-ui/blob/dev/src/components/Modal/Modal.doc.mdx)
+So, you can find doc of each component [here](https://github.com/Mario-aj/react-ui/blob/dev/DOCS.md)
 
 ## Contributing
 
