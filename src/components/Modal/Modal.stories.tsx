@@ -20,53 +20,56 @@ export default {
   },
 };
 
-const BaseModal = (args: ModalProps) => <Modal {...args} />;
-
 const ControlledModal = ({ isOpen }: ModalProps): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = useState(isOpen);
+  const items = new Array(20).fill(0);
 
   return (
     <>
       <button
-        className="px-2 py-1 text-white bg-red-400 rounded"
+        className="px-3 py-2 text-white bg-green-500 rounded"
         onClick={() => setIsModalOpen(true)}
       >
-        Open modal
+        Click to open modal
       </button>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <div className="mb-4">
-          <header>
-            <p>Income</p>
-          </header>
-          <strong>$1000,00</strong>
-        </div>
-
-        <div>
-          <header>
-            <p>Outcome</p>
-          </header>
-          <strong>-$2000,00</strong>
-        </div>
+        {items.map((_, index) => (
+          <div className="p-2 mb-2 border-b border-gray-500 rounded-md shadow-inner">
+            item {index}
+          </div>
+        ))}
       </Modal>
     </>
   );
 };
 
-export const Base = (args: ModalProps): JSX.Element => (
-  <>
-    <h1>play with controller 'isOpen' below</h1>
-    <BaseModal {...args} />
-  </>
-);
+const BaseModal = ({ isOpen, children }: ModalProps): JSX.Element => {
+  const [isModalOpen, setIsModalOpen] = useState(isOpen);
+  return (
+    <div>
+      <button
+        className="px-3 py-2 text-white bg-green-500 rounded"
+        onClick={() => setIsModalOpen(true)}
+      >
+        Click to open modal
+      </button>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        {children}
+      </Modal>
+    </div>
+  );
+};
+
+export const Base = (args: ModalProps): JSX.Element => <BaseModal {...args} />;
 
 Base.args = {
   isOpen: false,
   children: 'This a basic modal use!',
 };
 
-export const Controlled = (args: ModalProps): JSX.Element => (
+export const WithScroll = (args: ModalProps): JSX.Element => (
   <ControlledModal {...args} />
 );
-Controlled.args = {
+WithScroll.args = {
   isOpen: false,
 };

@@ -44,7 +44,7 @@ export const Modal = ({
   return (
     <div
       className={classnames(
-        'fixed top-0 bottom-0 left-0 right-0 z-50 opacity-0 pointer-events-none transition-all duration-300 ease-in-out flex items-center justify-center',
+        'fixed top-0 bottom-0 left-0 right-0 z-50 opacity-0 p-8 pointer-events-none transition-all duration-300 ease-in-out flex items-center justify-center',
         {
           'opacity-100 pointer-events-auto': isOpen,
         }
@@ -67,7 +67,11 @@ export const Modal = ({
         >
           x
         </button>
-        <div className={classnames('mt-8 w-96', className)}>{children}</div>
+        <div
+          className={classnames('mt-12 w-96 h-72 overflow-y-scroll', className)}
+        >
+          {children}
+        </div>
       </div>
     </div>
   );
