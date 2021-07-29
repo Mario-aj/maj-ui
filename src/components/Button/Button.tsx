@@ -35,19 +35,19 @@ const INTENT_CLASS_Map = {
     normal: 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300',
   },
   primary: {
-    normal: '',
+    normal: 'bg-blue-600 hover:bg-blue-500 active:bg-blue-800 text-white',
   },
   success: {
-    normal: '',
+    normal: 'bg-green-600 hover:bg-green-500 active:bg-green-800 text-white',
   },
   warning: {
-    normal: '',
+    normal: 'bg-yellow-600 hover:bg-yellow-500 active:bg-yellow-800 text-white',
   },
   danger: {
-    normal: '',
+    normal: 'bg-red-600 hover:bg-red-500 active:bg-red-800 text-white',
   },
   dark: {
-    normal: '',
+    normal: 'bg-gray-800 hover:bg-gray-700 active:bg-gray-900 text-white',
   },
 };
 
