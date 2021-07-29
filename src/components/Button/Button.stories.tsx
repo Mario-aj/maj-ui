@@ -55,3 +55,12 @@ export const Dark = (args: ButtonProps): JSX.Element => (
   <BaaseButton {...args} />
 );
 Dark.args = { intent: 'dark', label: 'Dark' };
+
+export const TwitterButton = (args: ButtonProps): JSX.Element => (
+  <BaaseButton {...args} />
+);
+TwitterButton.args = {
+  intent: 'primary',
+  label: 'Twitter Button',
+  twitterButton: true,
+};

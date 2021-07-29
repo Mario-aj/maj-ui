@@ -29,7 +29,15 @@ export interface ButtonProps extends HTMLButtonElement {
   */
   full?: boolean;
 
+  /*
+    size of the button
+  */
   size?: 'small' | 'medium' | 'large';
+
+  /*
+    with border radius rounded to the specified value
+  */
+  twitterButton?: boolean;
 
   /*
     intent define the appearance of the button
@@ -50,6 +58,7 @@ export const Button = ({
   outline = false,
   full = false,
   size = 'medium',
+  twitterButton = false,
   onClick = () => {},
 }: ButtonProps): JSX.Element => {
   const styleVariant = outline ? 'outline' : 'normal';
@@ -63,6 +72,7 @@ export const Button = ({
       'text-sm': size === 'small',
       'text-base': size === 'medium',
       'text-xl': size === 'large',
+      'rounded-3xl': twitterButton,
     }
   );
 
