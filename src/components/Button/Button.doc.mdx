@@ -17,7 +17,12 @@ Buttons allow users to perform an action or navigate to another page.
 # Preview
 
 <Preview>
-  <Button label="Default" type="button" onClick={() => {}} />
+  <Button label="Default" type="button" intent="secondary" onClick={() => {}} />
+  <Button label="Default" type="button" intent="primary" onClick={() => {}} />
+  <Button label="Default" type="button" intent="success" onClick={() => {}} />
+  <Button label="Default" type="button" intent="warning" onClick={() => {}} />
+  <Button label="Default" type="button" intent="danger" onClick={() => {}} />
+  <Button label="Default" type="button" intent="dark" onClick={() => {}} />
 </Preview>
 
 ## Usage
@@ -28,6 +33,6 @@ Buttons allow users to perform an action or navigate to another page.
 import { Button } from '@maj/react-ui';
 
 const NavButton = (): JSX.Element => (
-  <Button label="next" type="button" onClick={() => {}} />
+  <Button label="next" type="button" intent="success" onClick={() => {}} />
 );
 ```
