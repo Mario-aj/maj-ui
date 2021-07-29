@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import classnames from 'classnames';
-import { INTENT_CLASS_Map } from './intent';
+import { INTENT_CLASS_MAP } from './intent';
 
 export interface ButtonProps extends HTMLButtonElement {
   /*
@@ -52,8 +52,8 @@ export const Button = ({
   const styleVariant = outline ? 'outline' : 'normal';
 
   const buttonClasses = classnames(
-    INTENT_CLASS_Map.base,
-    INTENT_CLASS_Map[intent][styleVariant],
+    INTENT_CLASS_MAP.base,
+    INTENT_CLASS_MAP[intent][styleVariant],
     {
       'opacity-30 cursor-not-allowed border-transparent': disabled,
       'w-full': full,

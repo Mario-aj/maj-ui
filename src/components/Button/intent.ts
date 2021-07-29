@@ -1,4 +1,4 @@
-export const INTENT_CLASS_Map = {
+export const INTENT_CLASS_MAP = {
   base: 'px-4 py-1.5 text-sm transition-all duration-300 rounded flex items-center justify-center',
   secondary: {
     normal: 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300',
