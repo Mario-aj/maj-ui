@@ -15,13 +15,15 @@ export default {
   argTypes: {
     label: 'string',
     type: 'string',
+    disabled: false,
   },
 };
 
-const BaseButton = ({ label, type }: ButtonProps): JSX.Element => (
+const BaseButton = ({ label, type, ...props }: ButtonProps): JSX.Element => (
   <Button
     label={label}
     type={type}
+    {...props}
     onClick={() => console.log('event click')}
   />
 );
@@ -30,6 +32,7 @@ export const Primary = (args: ButtonProps): JSX.Element => (
   <BaseButton {...args} />
 );
 Primary.args = {
-  label: 'Primary',
+  label: 'Default',
   type: 'button',
+  disabled: false,
 };
