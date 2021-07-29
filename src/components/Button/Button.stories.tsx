@@ -16,6 +16,7 @@ export default {
     label: 'string',
     type: 'string',
     disabled: false,
+    outline: false,
   },
 };
 
@@ -36,4 +37,5 @@ Primary.args = {
   type: 'button',
   intent: 'secondary',
   disabled: false,
+  outline: false,
 };
