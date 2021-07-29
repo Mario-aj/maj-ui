@@ -27,6 +27,6 @@ export const INTENT_CLASS_Map = {
   dark: {
     normal: 'bg-gray-800 hover:bg-gray-700 active:bg-gray-900 text-white',
     outline:
-      'bg-gray-800 text-white border border-white hover:bg-gray-500 active:border-0 active:bg-gray-600',
+      'bg-gray-800 text-white border border-white hover:bg-gray-600 active:border-0 active:bg-gray-700',
   },
 };

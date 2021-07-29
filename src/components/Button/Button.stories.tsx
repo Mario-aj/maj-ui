@@ -12,30 +12,46 @@ export default {
       page: docs,
     },
   },
-  argTypes: {
-    label: 'string',
-    type: 'string',
-    disabled: false,
+  args: {
+    label: 'Default',
+    type: 'button',
     outline: false,
+    disabled: false,
+    full: false,
+  },
+  argTypes: {
+    onClick: { action: 'clicked' },
   },
 };
 
-const BaseButton = ({ label, type, ...props }: ButtonProps): JSX.Element => (
-  <Button
-    label={label}
-    type={type}
-    {...props}
-    onClick={() => console.log('event click')}
-  />
-);
+const BaaseButton = (args: ButtonProps) => <Button {...args} />;
 
 export const Primary = (args: ButtonProps): JSX.Element => (
-  <BaseButton {...args} />
+  <BaaseButton {...args} />
 );
-Primary.args = {
-  label: 'Default',
-  type: 'button',
-  intent: 'secondary',
-  disabled: false,
-  outline: false,
-};
+Primary.args = { intent: 'primary', label: 'Primary' };
+
+export const Secondary = (args: ButtonProps): JSX.Element => (
+  <BaaseButton {...args} />
+);
+Secondary.args = { intent: 'secondary', label: 'Secondary' };
+
+export const Success = (args: ButtonProps): JSX.Element => (
+  <BaaseButton {...args} />
+);
+Success.args = { intent: 'success', label: 'Success' };
+
+export const Warning = (args: ButtonProps): JSX.Element => (
+  <BaaseButton {...args} />
+);
+Warning.args = { intent: 'warning', label: 'Warning' };
+
+export const Danger = (args: ButtonProps): JSX.Element => (
+  <BaaseButton {...args} />
+);
+Danger.args = { intent: 'danger', label: 'Danger' };
+
+export const Dark = (args: ButtonProps): JSX.Element => (
+  <BaaseButton {...args} />
+);
+Dark.args = { intent: 'dark', label: 'Dark' };

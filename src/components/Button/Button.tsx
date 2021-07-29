@@ -25,6 +25,11 @@ export interface ButtonProps extends HTMLButtonElement {
   outline: boolean;
 
   /*
+    define if button will occupy the entire available space or no.
+  */
+  full?: boolean;
+
+  /*
     intent define the appearance of the button
   */
   intent: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'dark';
@@ -41,7 +46,8 @@ export const Button = ({
   type = 'button',
   intent = 'secondary',
   outline = false,
-  onClick,
+  full = false,
+  onClick = () => {},
 }: ButtonProps): JSX.Element => {
   const styleVariant = outline ? 'outline' : 'normal';
 
@@ -50,6 +56,7 @@ export const Button = ({
     INTENT_CLASS_Map[intent][styleVariant],
     {
       'opacity-30 cursor-not-allowed border-transparent': disabled,
+      'w-full': full,
     }
   );
 
