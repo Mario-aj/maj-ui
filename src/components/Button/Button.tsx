@@ -29,6 +29,8 @@ export interface ButtonProps extends HTMLButtonElement {
   */
   full?: boolean;
 
+  size?: 'small' | 'medium' | 'large';
+
   /*
     intent define the appearance of the button
   */
@@ -47,6 +49,7 @@ export const Button = ({
   intent = 'secondary',
   outline = false,
   full = false,
+  size = 'medium',
   onClick = () => {},
 }: ButtonProps): JSX.Element => {
   const styleVariant = outline ? 'outline' : 'normal';
@@ -57,6 +60,9 @@ export const Button = ({
     {
       'opacity-30 cursor-not-allowed border-transparent': disabled,
       'w-full': full,
+      'text-sm': size === 'small',
+      'text-base': size === 'medium',
+      'text-xl': size === 'large',
     }
   );
 
