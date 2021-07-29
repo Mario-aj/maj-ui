@@ -34,5 +34,6 @@ export const Primary = (args: ButtonProps): JSX.Element => (
 Primary.args = {
   label: 'Default',
   type: 'button',
+  intent: 'secondary',
   disabled: false,
 };
