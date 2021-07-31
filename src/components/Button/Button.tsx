@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import classnames from 'classnames';
-import { INTENT_CLASS_MAP } from './intent';
+import { preperButtonClasseName } from './utils';
 
 export interface ButtonProps extends HTMLButtonElement {
   /*
@@ -49,41 +48,6 @@ export interface ButtonProps extends HTMLButtonElement {
   */
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
-
-interface PreperButtonClassNameProps {
-  outline: boolean;
-  full: boolean;
-  intent: ButtonProps['intent'];
-  disabled: boolean;
-  size: string;
-  twitterButton: boolean;
-}
-
-const preperButtonClasseName = ({
-  outline,
-  full,
-  intent,
-  disabled,
-  size,
-  twitterButton,
-}: PreperButtonClassNameProps) => {
-  const styleVariant = outline ? 'outline' : 'normal';
-
-  const buttonClasseName = classnames(
-    INTENT_CLASS_MAP.base,
-    INTENT_CLASS_MAP[intent][styleVariant],
-    {
-      'opacity-30 cursor-not-allowed border-transparent': disabled,
-      'w-full': full,
-      'text-sm': size === 'small',
-      'text-base': size === 'medium',
-      'text-xl': size === 'large',
-      'rounded-3xl': twitterButton,
-    }
-  );
-
-  return buttonClasseName;
-};
 
 export const Button = ({
   disabled = false,

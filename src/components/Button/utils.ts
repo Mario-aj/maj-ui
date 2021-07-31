@@ -1,4 +1,16 @@
-export const INTENT_CLASS_MAP = {
+import classnames from 'classnames';
+import { ButtonProps } from '.';
+
+interface PreperButtonClassNameProps {
+  outline: boolean;
+  full: boolean;
+  intent: ButtonProps['intent'];
+  disabled: boolean;
+  size: string;
+  twitterButton: boolean;
+}
+
+const INTENT_CLASS_MAP = {
   base: 'px-4 py-1.5 text-sm transition-all duration-300 rounded flex items-center justify-center',
   secondary: {
     normal: 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300',
@@ -29,4 +41,30 @@ export const INTENT_CLASS_MAP = {
     outline:
       'bg-gray-800 text-white border border-white hover:bg-gray-600 active:border-0 active:bg-gray-700',
   },
+};
+
+export const preperButtonClasseName = ({
+  outline,
+  full,
+  intent,
+  disabled,
+  size,
+  twitterButton,
+}: PreperButtonClassNameProps): string => {
+  const styleVariant = outline ? 'outline' : 'normal';
+
+  const buttonClasseName = classnames(
+    INTENT_CLASS_MAP.base,
+    INTENT_CLASS_MAP[intent][styleVariant],
+    {
+      'opacity-30 cursor-not-allowed border-transparent': disabled,
+      'w-full': full,
+      'text-sm': size === 'small',
+      'text-base': size === 'medium',
+      'text-xl': size === 'large',
+      'rounded-3xl': twitterButton,
+    }
+  );
+
+  return buttonClasseName;
 };
