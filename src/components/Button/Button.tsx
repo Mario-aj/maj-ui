@@ -32,12 +32,12 @@ export interface ButtonProps extends HTMLButtonElement {
   /*
     size of the button
   */
-  size?: 'small' | 'medium' | 'large';
+  size: 'small' | 'medium' | 'large';
 
   /*
     with border radius rounded to the specified value
   */
-  twitterButton?: boolean;
+  twitterButton: boolean;
 
   /*
     intent define the appearance of the button
@@ -57,7 +57,7 @@ export const Button = ({
   intent = 'secondary',
   outline = false,
   full = false,
-  size = 'medium',
+  size = 'small',
   twitterButton = false,
   onClick = () => {},
 }: ButtonProps): JSX.Element => {
