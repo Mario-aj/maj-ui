@@ -50,20 +50,26 @@ export interface ButtonProps extends HTMLButtonElement {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const Button = ({
-  disabled = false,
-  label,
-  type = 'button',
-  intent = 'secondary',
-  outline = false,
-  full = false,
-  size = 'small',
-  twitterButton = false,
-  onClick = () => {},
-}: ButtonProps): JSX.Element => {
+interface PreperButtonClassNameProps {
+  outline: boolean;
+  full: boolean;
+  intent: ButtonProps['intent'];
+  disabled: boolean;
+  size: string;
+  twitterButton: boolean;
+}
+
+const preperButtonClasseName = ({
+  outline,
+  full,
+  intent,
+  disabled,
+  size,
+  twitterButton,
+}: PreperButtonClassNameProps) => {
   const styleVariant = outline ? 'outline' : 'normal';
 
-  const buttonClasses = classnames(
+  const buttonClasseName = classnames(
     INTENT_CLASS_MAP.base,
     INTENT_CLASS_MAP[intent][styleVariant],
     {
@@ -76,10 +82,33 @@ export const Button = ({
     }
   );
 
+  return buttonClasseName;
+};
+
+export const Button = ({
+  disabled = false,
+  label,
+  type = 'button',
+  intent = 'secondary',
+  outline = false,
+  full = false,
+  size = 'small',
+  twitterButton = false,
+  onClick = () => {},
+}: ButtonProps): JSX.Element => {
+  const buttonClassName = preperButtonClasseName({
+    intent,
+    outline,
+    full,
+    size,
+    twitterButton,
+    disabled,
+  });
+
   return (
     <button
       type={type}
-      className={buttonClasses}
+      className={buttonClassName}
       disabled={disabled}
       onClick={onClick}
     >
