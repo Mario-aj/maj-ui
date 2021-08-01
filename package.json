@@ -8,8 +8,8 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@storybook/addon-actions": "^6.3.4",
+    "@babel/core": "^7.14.8",
+    "@storybook/addon-actions": "^6.3.6",
     "@storybook/addon-docs": "^6.3.6",
     "@storybook/addon-essentials": "^6.3.4",
     "@storybook/addon-links": "^6.3.4",
