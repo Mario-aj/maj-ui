@@ -1,0 +1,71 @@
+import { ArgsTable, Preview } from '@storybook/addon-docs/blocks';
+import { Button } from '.';
+
+# Button
+
+Buttons allow users to perform an action or navigate to another page.
+
+## Props
+
+<ArgsTable of={Button} />
+
+# Preview
+
+<Preview>
+  <Button
+    label="secondary"
+    type="button"
+    intent="secondary"
+    onClick={() => {}}
+  />
+  <Button label="primary" type="button" intent="primary" onClick={() => {}} />
+  <Button label="success" type="button" intent="success" onClick={() => {}} />
+  <Button label="warning" type="button" intent="warning" onClick={() => {}} />
+  <Button label="danger" type="button" intent="danger" onClick={() => {}} />
+  <Button label="dark" type="button" intent="dark" onClick={() => {}} />
+  <Button
+    label="Twitter button"
+    type="button"
+    intent="dark"
+    twitterButton
+    onClick={() => {}}
+  />
+</Preview>
+
+# Sizes
+
+<Preview>
+  <Button
+    label="small"
+    size="small"
+    type="button"
+    intent="dark"
+    onClick={() => {}}
+  />
+  <Button
+    label="medium"
+    size="medium"
+    type="button"
+    intent="dark"
+    onClick={() => {}}
+  />
+  <Button
+    label="large"
+    size="large"
+    type="button"
+    intent="dark"
+    onClick={() => {}}
+  />
+</Preview>
+
+## Usage
+
+> Note: considering that this library has not yet been published, the path of import is fictitious
+
+```jsx
+import { Button } from '@maj/react-ui';
+
+const NavButton = (): JSX.Element => (
+  <Button label="next" type="button" intent="success" onClick={() => {}} />
+);
+```
