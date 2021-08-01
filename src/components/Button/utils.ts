@@ -13,7 +13,7 @@ interface PreperButtonClassNameProps {
 const INTENT_CLASS_MAP = {
   base: 'px-4 py-1.5 text-sm transition-all duration-300 rounded flex items-center justify-center',
   secondary: {
-    normal: 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300',
+    normal: 'bg-gray-200 hover:bg-gray-300 active:bg-gray-400',
     outline: 'bg-white border border-gray-500',
   },
   primary: {
