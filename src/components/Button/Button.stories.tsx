@@ -71,6 +71,15 @@ WithIcon.args = {
   iconRight: false,
 };
 
+export const WithLoadingState = (args: ButtonProps): JSX.Element => (
+  <BaaseButton {...args} />
+);
+WithLoadingState.args = {
+  intent: 'primary',
+  label: 'loading',
+  loading: true,
+};
+
 export const TwitterButton = (args: ButtonProps): JSX.Element => (
   <BaaseButton {...args} />
 );
