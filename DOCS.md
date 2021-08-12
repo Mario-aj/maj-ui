@@ -5,3 +5,4 @@
 ## Components.
 
 - [Modal](https://github.com/Mario-aj/react-ui/blob/dev/src/components/Modal/Modal.doc.mdx)
+- [Button](https://github.com/Mario-aj/react-ui/blob/dev/src/components/Button/Button.doc.mdx)

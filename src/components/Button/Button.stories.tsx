@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
+import { FaArrowRight } from 'react-icons/fa';
 import { Button, ButtonProps } from '.';
 
 import docs from './Button.doc.mdx';
@@ -18,9 +20,12 @@ export default {
     outline: false,
     disabled: false,
     full: false,
+    iconRight: false,
   },
   argTypes: {
     onClick: { action: 'clicked' },
+    iconRight: false,
+    full: false,
   },
 };
 
@@ -55,6 +60,26 @@ export const Dark = (args: ButtonProps): JSX.Element => (
   <BaaseButton {...args} />
 );
 Dark.args = { intent: 'dark', label: 'Dark' };
+
+export const WithIcon = (args: ButtonProps): JSX.Element => (
+  <BaaseButton {...args} />
+);
+WithIcon.args = {
+  intent: 'primary',
+  label: 'icon',
+  icon: FaArrowRight,
+  iconRight: false,
+};
+
+export const WithLoadingState = (args: ButtonProps): JSX.Element => (
+  <BaaseButton {...args} />
+);
+WithLoadingState.args = {
+  intent: 'primary',
+  label: 'loading',
+  loading: true,
+  disabled: true,
+};
 
 export const TwitterButton = (args: ButtonProps): JSX.Element => (
   <BaaseButton {...args} />
