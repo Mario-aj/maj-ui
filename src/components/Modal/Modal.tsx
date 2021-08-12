@@ -1,5 +1,6 @@
 import React, { ReactNode, useEffect } from 'react';
 import classnames from 'classnames';
+import { FaRegTimesCircle } from 'react-icons/fa';
 
 export interface ModalProps {
   /*
@@ -69,12 +70,10 @@ export const Modal = ({
       >
         <div className="flex items-center justify-between">
           <h1 className="m-0 text-lg font-bold">{title}</h1>
-          <button
-            className="px-3 py-1 text-white transition-opacity duration-300 bg-gray-500 rounded-full cursor-pointer bg-none opacity-80 hover:opacity-100 focus:outline-none"
+          <FaRegTimesCircle
+            className="w-8 h-8 text-gray-600 transition-opacity duration-300 cursor-pointer opacity-80 hover:opacity-100"
             onClick={onClose}
-          >
-            x
-          </button>
+          />
         </div>
         <div
           className={classnames(

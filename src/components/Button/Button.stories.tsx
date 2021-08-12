@@ -78,6 +78,7 @@ WithLoadingState.args = {
   intent: 'primary',
   label: 'loading',
   loading: true,
+  disabled: true,
 };
 
 export const TwitterButton = (args: ButtonProps): JSX.Element => (
