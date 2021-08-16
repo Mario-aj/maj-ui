@@ -13,7 +13,7 @@
 
 ## Installation
 
-- There is not first version yet.
+- There is not first release yet.
 
 ## Doc.
 
