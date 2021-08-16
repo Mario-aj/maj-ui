@@ -1,5 +1,5 @@
 import React from 'react';
-import { Toggle } from '.';
+import { Toggle, ToggleProps } from '.';
 
 export default {
   title: 'Components/Toggle',
@@ -7,8 +7,18 @@ export default {
   parameters: {
     layout: 'centered',
   },
-  args: {},
-  argTypes: {},
+  args: {
+    active: false,
+  },
+  argTypes: {
+    active: 'bool',
+  },
 };
 
-export const ToggleDefault = (): JSX.Element => <Toggle />;
+export const ToggleDefault = (args: ToggleProps): JSX.Element => (
+  <Toggle {...args} />
+);
+
+ToggleDefault.args = {
+  active: false,
+};
