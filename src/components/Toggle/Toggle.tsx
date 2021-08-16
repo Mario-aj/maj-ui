@@ -7,11 +7,9 @@ export interface ToggleProps {
   onClick: () => void;
 }
 
-export const Toggle = ({
-  active,
-  large,
-  onClick,
-}: ToggleProps): JSX.Element => {
+export const Toggle = (props: ToggleProps): JSX.Element => {
+  const { active, large, onClick } = props;
+
   const handleClick = (e: MouseEvent<any>) => {
     e.stopPropagation();
     onClick();

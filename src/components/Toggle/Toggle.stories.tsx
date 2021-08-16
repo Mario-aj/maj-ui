@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Toggle, ToggleProps } from '.';
 
 export default {
@@ -18,13 +18,13 @@ export default {
 };
 
 const Base = ({ active, large }: ToggleProps) => {
-  const [isActive, setIsActive] = useState(active || false);
+  const [isActive, setIsActive] = React.useState(active || false);
 
   return (
     <Toggle
       active={isActive}
       large={large}
-      onClick={() => setIsActive((off) => !off)}
+      onClick={() => setIsActive((status) => !status)}
     />
   );
 };
