@@ -2,8 +2,19 @@ import React, { MouseEvent } from 'react';
 import classnames from 'classnames';
 
 export interface ToggleProps {
+  /*
+    define the state of the toggle (on/off)
+  */
   active: boolean;
+
+  /*
+    define the size of the toggle
+  */
   large?: boolean;
+
+  /*
+    Click action, to change the state of the toggle
+  */
   onClick: () => void;
 }
 

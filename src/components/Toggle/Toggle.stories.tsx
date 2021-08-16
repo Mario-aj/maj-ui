@@ -1,11 +1,15 @@
 import React from 'react';
 import { Toggle, ToggleProps } from '.';
+import docs from './Toggle.doc.mdx';
 
 export default {
   title: 'Components/Toggle',
   component: Toggle,
   parameters: {
     layout: 'centered',
+    docs: {
+      page: docs,
+    },
   },
   args: {
     active: false,
@@ -24,7 +28,7 @@ const Base = ({ active, large }: ToggleProps) => {
     <Toggle
       active={isActive}
       large={large}
-      onClick={() => setIsActive((status) => !status)}
+      onClick={() => setIsActive((state) => !state)}
     />
   );
 };
