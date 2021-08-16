@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import classnames from 'classnames';
 
 export interface ToggleProps {
   active: boolean;
   large?: boolean;
+  onClick: () => void;
 }
 
-export const Toggle = ({ active, large }: ToggleProps): JSX.Element => {
+export const Toggle = ({
+  active,
+  large,
+  onClick,
+}: ToggleProps): JSX.Element => {
+  const handleClick = (e: MouseEvent<any>) => {
+    e.stopPropagation();
+    onClick();
+  };
+
   return (
     <div
       className={classnames(
@@ -16,6 +26,7 @@ export const Toggle = ({ active, large }: ToggleProps): JSX.Element => {
           'w-8 h-5': large,
         }
       )}
+      onClick={handleClick}
     >
       <div
         className={classnames(

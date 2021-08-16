@@ -20,7 +20,13 @@ export default {
 const Base = ({ active, large }: ToggleProps) => {
   const [isActive, setIsActive] = useState(active || false);
 
-  return <Toggle active={isActive} large={large} />;
+  return (
+    <Toggle
+      active={isActive}
+      large={large}
+      onClick={() => setIsActive((off) => !off)}
+    />
+  );
 };
 
 export const Default = (args: ToggleProps): JSX.Element => <Base {...args} />;
