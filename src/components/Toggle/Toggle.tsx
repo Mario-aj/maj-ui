@@ -5,7 +5,7 @@ export interface ToggleProps {
   /*
     define the state of the toggle (on/off)
   */
-  active: boolean;
+  checked: boolean;
 
   /*
     define the size of the toggle
@@ -24,7 +24,7 @@ export interface ToggleProps {
 }
 
 export const Toggle = (props: ToggleProps): JSX.Element => {
-  const { active, large, disabled, onClick } = props;
+  const { checked, large, disabled, onClick } = props;
 
   const handleClick = (e: MouseEvent<any>) => {
     e.stopPropagation();
@@ -36,7 +36,7 @@ export const Toggle = (props: ToggleProps): JSX.Element => {
       className={classnames(
         'box-border relative flex items-center h-4 bg-gray-400 outline-none cursor-pointer w-7 rounded-xl',
         {
-          'bg-blue-600': active,
+          'bg-blue-600': checked,
           'w-8 h-5': large,
           'opacity-50 cursor-not-allowed': disabled,
         }
@@ -47,7 +47,7 @@ export const Toggle = (props: ToggleProps): JSX.Element => {
         className={classnames(
           'h-3 transform duration-300 w-3 rounded-full bg-white ml-0.5 shadow-md',
           {
-            'translate-x-3': active,
+            'translate-x-3': checked,
             'w-4 h-4': large,
           }
         )}

@@ -12,23 +12,23 @@ export default {
     },
   },
   args: {
-    active: false,
+    checked: false,
     large: false,
     disabled: false,
   },
   argTypes: {
-    active: false,
+    checked: false,
     large: false,
     disabled: false,
   },
 };
 
-const Base = ({ active, large, disabled }: ToggleProps) => {
-  const [isActive, setIsActive] = React.useState(active || false);
+const Base = ({ checked, large, disabled }: ToggleProps) => {
+  const [isActive, setIsActive] = React.useState(checked || false);
 
   return (
     <Toggle
-      active={isActive}
+      checked={isActive}
       large={large}
       disabled={disabled}
       onClick={() => setIsActive((state) => !state)}
@@ -39,7 +39,7 @@ const Base = ({ active, large, disabled }: ToggleProps) => {
 export const Default = (args: ToggleProps): JSX.Element => <Base {...args} />;
 
 Default.args = {
-  active: false,
+  checked: false,
   large: false,
   disabled: false,
 };
@@ -47,7 +47,7 @@ Default.args = {
 export const Large = (args: ToggleProps): JSX.Element => <Base {...args} />;
 
 Large.args = {
-  active: false,
+  checked: false,
   large: true,
   disabled: false,
 };
