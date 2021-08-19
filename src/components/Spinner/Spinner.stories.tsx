@@ -1,11 +1,16 @@
 import React from 'react';
 import { Spinner, SpinnerProps } from '.';
 
+import docs from './Spinner.doc.mdx';
+
 export default {
   title: 'Components/Spinner',
   component: Spinner,
   parameters: {
     layout: 'centered',
+    docs: {
+      page: docs,
+    },
   },
 };
 
