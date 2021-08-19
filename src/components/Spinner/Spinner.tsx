@@ -1,8 +1,19 @@
 import React from 'react';
+import { INTENT_CLASSES } from '../../../styles/intents';
 
-export const SPinner = (): JSX.Element => (
-  <span className="w-4 h-4 spinner">
-    <style>{`
+export interface SpinnerProps {
+  intent: 'primary' | 'success' | 'secondary' | 'danger';
+  size: 'sm' | 'md' | 'lg';
+}
+
+export const Spinner = (props: SpinnerProps): JSX.Element => {
+  const { intent = 'primary', size = 'md' } = props;
+
+  const spinnerSizeClass = { lg: '5.75rem', md: '2.75rem', sm: '1.75rem' };
+
+  return (
+    <span className="w-8 h-8 spinner">
+      <style>{`
       .spinner {
         position: relative;
         color: transparent !important;
@@ -14,9 +25,9 @@ export const SPinner = (): JSX.Element => (
         position: absolute;
         top: calc(50% - (1em / 2));
         display: block;
-        width: 3rem;
-        height: 3rem;
-        border: 0.25rem solid red;
+        width: ${spinnerSizeClass[size]};
+        height: ${spinnerSizeClass[size]};
+        border: 0.25rem solid ${INTENT_CLASSES[intent]};
         border-radius: 100%;
         border-right-color: transparent !important;
         border-top-color: transparent !important;
@@ -32,5 +43,6 @@ export const SPinner = (): JSX.Element => (
         }
       }
     `}</style>
-  </span>
-);
+    </span>
+  );
+};

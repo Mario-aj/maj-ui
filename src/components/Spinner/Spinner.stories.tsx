@@ -1,20 +1,35 @@
 import React from 'react';
-import { SPinner } from '.';
+import { Spinner, SpinnerProps } from '.';
 
 export default {
-  title: 'Components/SPinner',
-  component: SPinner,
+  title: 'Components/Spinner',
+  component: Spinner,
   parameters: {
     layout: 'centered',
   },
-  args: {},
-  argTypes: {},
 };
 
-const Base = (): JSX.Element => {
-  return <SPinner />;
+const Base = ({ intent, size }: SpinnerProps): JSX.Element => {
+  return <Spinner intent={intent} size={size} />;
 };
 
-export const Default = (): JSX.Element => <Base />;
+export const Large = (args: SpinnerProps): JSX.Element => <Base {...args} />;
 
-Default.args = {};
+Large.args = {
+  intent: 'secondary',
+  size: 'lg',
+};
+
+export const Medium = (args: SpinnerProps): JSX.Element => <Base {...args} />;
+
+Medium.args = {
+  intent: 'secondary',
+  size: 'md',
+};
+
+export const Small = (args: SpinnerProps): JSX.Element => <Base {...args} />;
+
+Small.args = {
+  intent: 'secondary',
+  size: 'sm',
+};
