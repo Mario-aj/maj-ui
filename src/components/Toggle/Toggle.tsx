@@ -13,13 +13,18 @@ export interface ToggleProps {
   large?: boolean;
 
   /*
+    difine the disabled state of the toggle
+  */
+  disabled?: boolean;
+
+  /*
     Click action, to change the state of the toggle
   */
   onClick: () => void;
 }
 
 export const Toggle = (props: ToggleProps): JSX.Element => {
-  const { active, large, onClick } = props;
+  const { active, large, disabled, onClick } = props;
 
   const handleClick = (e: MouseEvent<any>) => {
     e.stopPropagation();
@@ -33,9 +38,10 @@ export const Toggle = (props: ToggleProps): JSX.Element => {
         {
           'bg-blue-600': active,
           'w-8 h-5': large,
+          'opacity-50 cursor-not-allowed': disabled,
         }
       )}
-      onClick={handleClick}
+      onClick={(e) => !disabled && handleClick(e)}
     >
       <div
         className={classnames(
