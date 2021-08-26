@@ -7,23 +7,16 @@ The component to manage te loading state and so on.
 
 ## Props
 
-<ArgsTable of={Spinner} />
+| Prop   | Description          | Type                                        | Default   |
+| ------ | -------------------- | ------------------------------------------- | --------- |
+| intent | The color of Spinner | 'primary', 'success', 'secondary', 'danger' | 'primary' |
+| size   | The size of Spinner  | 'sm', 'md', 'lg'                            | 'md'      |
 
 # Preview
 
-<Preview>
-  <Spinner size='sm' intent="danger" />
-</Preview>
-
-# Sizes
+> Spinner preview is only available in the storybook.
 
 <Preview>
-  <div className="mr-4">
-    <Spinner size="lg" intent="danger" />
-  </div>
-  <div className="mr-4">
-    <Spinner size="md" intent="danger" />
-  </div>
   <Spinner size="sm" intent="danger" />
 </Preview>
 
