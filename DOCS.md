@@ -7,3 +7,4 @@
 - [Modal](https://github.com/Mario-aj/react-ui/blob/dev/src/components/Modal/Modal.doc.mdx)
 - [Button](https://github.com/Mario-aj/react-ui/blob/dev/src/components/Button/Button.doc.mdx)
 - [Toggle](https://github.com/Mario-aj/react-ui/blob/dev/src/components/Toggle/Toggle.doc.mdx)
+- [Spinner](https://github.com/Mario-aj/react-ui/blob/dev/src/components/Spinner/Spinner.doc.mdx)
