@@ -1,14 +1,14 @@
-import React from "react";
-import { ComponentMeta } from "@storybook/react";
+import React from 'react';
+import { ComponentMeta } from '@storybook/react';
 
-import { TestProps, Test } from "./test";
+import { TestProps, Test } from './test';
 
 export default {
-  title: "Components/Test",
+  title: 'Components/Test',
   component: Test,
 
   argTypes: {
-    text: { control: "text" },
+    text: { control: 'text' },
   },
 } as ComponentMeta<typeof Test>;
 
@@ -17,12 +17,12 @@ const Template = (args: TestProps) => <Test {...args} />;
 export const Primeiro = Template.bind({});
 //@ts-ignore
 Primeiro.args = {
-  text: "Testando o storybook",
+  text: 'Testando o storybook',
 };
 
 /**
- * Button 
- * 
+ * Button
+ *
  * import React from 'react';
 
 import { Button } from './Button';
@@ -67,7 +67,7 @@ Small.args = {
 
 /**
  * Header
- * 
+ *
  * import React from 'react';
 
 import { Header } from './Header';
@@ -96,8 +96,8 @@ LoggedOut.args = {};
 
 /**
  * Page
- * 
- * 
+ *
+ *
  * import React from 'react';
 import { within, userEvent } from '@storybook/testing-library';
 
