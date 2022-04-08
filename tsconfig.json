@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "target": "es5",
+    "paths": {
+      "src/*": ["src/*"]
+    },
+    "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "noFallthroughCasesInSwitch": true,
     "declaration": true,
-    "outDir": "./lib",
-    "declarationDir": "lib",
+    "declarationMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
