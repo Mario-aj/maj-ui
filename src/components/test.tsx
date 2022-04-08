@@ -20,6 +20,9 @@ export const Test = ({ text, color }: Props) => (
     <h1 className="text-center text-3xl" style={{ color }}>
       {text}
     </h1>
+    <span className="text-xs text-blue-600 uppercase cursor-pointer opacity-70 hover:underline hover:opacity-100 transition-all duration-300">
+      @maj/react-ui
+    </span>
   </div>
 );
 
