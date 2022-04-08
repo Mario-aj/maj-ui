@@ -19,6 +19,7 @@
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "no-unused-vars": "error",
-    "@typescript-eslint/ban-ts-comment": "off"
+    "@typescript-eslint/ban-ts-comment": "off",
+    "no-undef": "off"
   }
 }

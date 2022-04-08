@@ -4,14 +4,13 @@
     "paths": {
       "src/*": ["src/*"]
     },
-    "target": "es6",
+    "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "noFallthroughCasesInSwitch": true,
     "declaration": true,
     "declarationMap": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "declarationDir": "lib",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

@@ -6,10 +6,6 @@ import { TestProps, Test } from './test';
 export default {
   title: 'Components/Test',
   component: Test,
-
-  argTypes: {
-    text: { control: 'text' },
-  },
 } as ComponentMeta<typeof Test>;
 
 const Template = (args: TestProps) => <Test {...args} />;
@@ -18,6 +14,7 @@ export const Primeiro = Template.bind({});
 //@ts-ignore
 Primeiro.args = {
   text: 'Testando o storybook',
+  color: 'red',
 };
 
 /**
