@@ -13,7 +13,7 @@ const Template = (args: TestProps) => <Test {...args} />;
 export const Primeiro = Template.bind({});
 //@ts-ignore
 Primeiro.args = {
-  text: 'Testando o storybook',
+  text: 'Testando o storybook com deploy automatizado no github pages',
   color: 'red',
 };
 
