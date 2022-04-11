@@ -1,4 +1,4 @@
-import type { ButtonProps } from '.';
+import type { ButtonProps } from './types';
 
 import { cx } from '../../utils';
 
