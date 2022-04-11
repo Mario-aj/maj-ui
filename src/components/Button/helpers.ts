@@ -11,7 +11,7 @@ type PrepareButtonProps = {
 
 const INTENT_CLASSES = {
   base: {
-    all: 'flex items-center px-4 justify-center py-1.5 transition-all duration-300 rounded shadow-sm text-base disabled:opacity-50 disabled:cursor-not-allowed',
+    all: 'flex items-center px-4 gap-3 justify-center py-1.5 transition-all duration-300 rounded shadow-sm text-base disabled:opacity-50 disabled:cursor-not-allowed',
     normal: 'text-white active:shadow-inner',
     outline: 'bg-white border border-solid',
   },
