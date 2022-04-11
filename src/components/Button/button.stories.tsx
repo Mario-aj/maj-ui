@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiOutlineHome } from 'react-icons/ai';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Button } from '.';
@@ -50,16 +51,9 @@ None.args = {
   intent: 'none',
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  label: 'Large',
-  size: 'large',
+export const Icon = Template.bind({});
+Icon.args = {
+  label: '',
   intent: 'primary',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  label: 'Small',
-  size: 'small',
-  intent: 'primary',
+  icon: <AiOutlineHome />,
 };
