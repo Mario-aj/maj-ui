@@ -40,7 +40,7 @@ type Props = {
   /**
    * type of button element
    */
-  type: 'button' | 'submit' | 'reset';
+  type?: 'button' | 'submit' | 'reset';
 
   /**
    * The size of button.
