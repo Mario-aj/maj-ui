@@ -2,27 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  border: none;
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700;900&display=swap');
 
-  box-sizing: border-box;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    border: none;
 
-body,
-html {
-  width: 100%;
-  height: 100%;
+    box-sizing: border-box;
+  }
 
-  padding: 0 !important;
-}
+  body,
+  html {
+    width: 100%;
+    height: 100%;
 
-#root {
-  width: 100vw;
-  height: 100vh;
+    padding: 0 !important;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale;
+
+    @apply font-normal bg-white;
+  }
+
+  #root {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
