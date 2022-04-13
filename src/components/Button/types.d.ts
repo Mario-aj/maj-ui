@@ -55,7 +55,13 @@ type Props = {
   /**
    * The appearance of the button.
    */
-  intent: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'none';
+  appearance:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'none';
 };
 
 export type { Props as ButtonProps };

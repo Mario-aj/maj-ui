@@ -12,12 +12,12 @@ const Button = ({
   size = 'medium',
   loading = false,
   outlined = false,
-  intent = 'primary',
+  appearance = 'primary',
   ...props
 }: ButtonProps) => {
-  if (!intent) throw new Error("Button's intent is required");
+  if (!appearance) throw new Error("Button's appearance is required");
 
-  const classes = prepareClassName({ size, intent, className, outlined });
+  const classes = prepareClassName({ size, appearance, className, outlined });
 
   return (
     <button className={classes} type={type} {...props}>
