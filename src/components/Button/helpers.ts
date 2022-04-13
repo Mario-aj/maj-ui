@@ -11,7 +11,7 @@ type PrepareButtonProps = {
 
 const classes = {
   base: {
-    all: 'flex items-center px-4 gap-3 justify-center py-1.5 transition-all duration-300 rounded shadow-sm text-base disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed',
+    all: 'flex items-center px-4 gap-2 justify-center py-1.5 transition-all duration-300 rounded shadow-sm text-base disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed',
     normal: 'text-white active:shadow-inner',
     outline:
       'bg-white border border-solid disabled:border-gray-200 disabled:bg-white',

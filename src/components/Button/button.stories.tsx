@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineHome } from 'react-icons/ai';
+import { MdSend, MdRecommend } from 'react-icons/md';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Button } from '.';
@@ -51,9 +51,16 @@ None.args = {
   appearance: 'none',
 };
 
-export const Icon = Template.bind({});
-Icon.args = {
-  label: '',
+export const StartIcon = Template.bind({});
+StartIcon.args = {
+  label: 'Send',
   appearance: 'primary',
-  icon: <AiOutlineHome />,
+  startIcon: <MdSend />,
+};
+
+export const EndIcon = Template.bind({});
+EndIcon.args = {
+  label: 'Recommend',
+  appearance: 'primary',
+  endIcon: <MdRecommend />,
 };
