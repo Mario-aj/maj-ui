@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineHome } from 'react-icons/ai';
+import { MdSend, MdRecommend } from 'react-icons/md';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Button } from '.';
@@ -18,42 +18,49 @@ const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'Primary',
-  intent: 'primary',
+  appearance: 'primary',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Secondary',
-  intent: 'secondary',
+  appearance: 'secondary',
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
   label: 'warning',
-  intent: 'warning',
+  appearance: 'warning',
 };
 
 export const Danger = Template.bind({});
 Danger.args = {
   label: 'danger',
-  intent: 'danger',
+  appearance: 'danger',
 };
 
 export const Success = Template.bind({});
 Success.args = {
   label: 'success',
-  intent: 'success',
+  appearance: 'success',
 };
 
 export const None = Template.bind({});
 None.args = {
   label: 'none',
-  intent: 'none',
+  appearance: 'none',
 };
 
-export const Icon = Template.bind({});
-Icon.args = {
-  label: '',
-  intent: 'primary',
-  icon: <AiOutlineHome />,
+export const StartIcon = Template.bind({});
+StartIcon.args = {
+  label: 'Send',
+  appearance: 'primary',
+  startIcon: <MdSend />,
+};
+
+export const EndIcon = Template.bind({});
+EndIcon.args = {
+  label: 'Recommend',
+  appearance: 'primary',
+  endIcon: <MdRecommend />,
 };

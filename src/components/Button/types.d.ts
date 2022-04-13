@@ -28,14 +28,14 @@ type Props = {
   loading?: boolean;
 
   /**
-   *  Define if the icon is on the left or right of the label.
+   *  Set the icon to be shown to the left of the label.
    */
-  iconRight?: boolean;
+  startIcon?: ReactNode;
 
   /**
-   * icon to display on button
+   * Set the icon to be shown to the right of the label.
    */
-  icon?: ReactNode;
+  endIcon?: ReactNode;
 
   /**
    * type of button element
@@ -55,7 +55,13 @@ type Props = {
   /**
    * The appearance of the button.
    */
-  intent: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'none';
+  appearance:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'none';
 };
 
 export type { Props as ButtonProps };
