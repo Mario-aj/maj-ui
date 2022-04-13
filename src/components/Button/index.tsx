@@ -5,27 +5,27 @@ import { ButtonProps } from './types';
 import { prepareClassName } from './helpers';
 
 const Button = ({
-  icon,
   label,
+  endIcon,
+  startIcon,
   className = '',
   type = 'button',
   size = 'medium',
   loading = false,
   outlined = false,
-  intent = 'primary',
+  appearance = 'primary',
   ...props
 }: ButtonProps) => {
-  if (!intent) throw new Error("Button's intent is required");
+  if (!appearance) throw new Error('Button appearance is required');
 
-  const classes = prepareClassName({ size, intent, className, outlined });
+  const classes = prepareClassName({ size, appearance, className, outlined });
 
   return (
     <button className={classes} type={type} {...props}>
-      {loading && (
-        <AiOutlineLoading3Quarters className="w-5 h-5 animate-spin" />
-      )}
-      {!loading && icon && icon}
+      {loading && <AiOutlineLoading3Quarters className="animate-spin" />}
+      {!loading && startIcon && startIcon}
       {label}
+      {!loading && endIcon && endIcon}
     </button>
   );
 };
