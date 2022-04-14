@@ -1,9 +1,22 @@
 {
   "name": "@maj/react-ui",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "git@github.com:Mario-aj/react-ui.git",
   "author": "mario-aj <mariojorge1997@mail.ru>",
+  "bugs": {
+    "url": "https://github.com/Mario-aj/react-ui/issues"
+  },
+  "homepage": "https://mario-aj.github.io/react-ui/?path=/story/introduction--page",
+  "keywords": [
+    "ui",
+    "react",
+    "react-ui",
+    "storybook",
+    "components",
+    "design-system",
+    "react-components"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.17.9",
