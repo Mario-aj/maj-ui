@@ -2,6 +2,7 @@
   "name": "@maj/react-ui",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": "git@github.com:Mario-aj/react-ui.git",
   "author": "mario-aj <mariojorge1997@mail.ru>",
   "bugs": {
