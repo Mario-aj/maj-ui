@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import { Spinner } from '..';
 
 import { ButtonProps } from './types';
 import { prepareClassName } from './helpers';
@@ -22,7 +22,7 @@ const Button = ({
 
   return (
     <button className={classes} type={type} {...props}>
-      {loading && <AiOutlineLoading3Quarters className="animate-spin" />}
+      {loading && <Spinner appearance="light" size="sm" />}
       {!loading && startIcon && startIcon}
       {label}
       {!loading && endIcon && endIcon}
