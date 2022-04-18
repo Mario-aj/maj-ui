@@ -16,7 +16,10 @@ const Button = ({
   appearance = 'primary',
   ...props
 }: ButtonProps) => {
-  if (!appearance) throw new Error('Button appearance is required');
+  if (!appearance)
+    throw new Error(
+      'Button appearence must be one of this [primary, secondary, success, warning, danger, none]'
+    );
 
   const classes = prepareClassName({ size, appearance, className, outlined });
 

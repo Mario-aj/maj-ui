@@ -1,6 +1,5 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import {} from 'react';
 
 import { Spinner } from '.';
 
@@ -13,7 +12,6 @@ const Template: ComponentStory<typeof Spinner> = args => <Spinner {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  size: 'lg',
   appearance: 'primary',
 };
 

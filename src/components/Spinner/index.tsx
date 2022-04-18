@@ -30,7 +30,7 @@ const classes = {
   success: 'border-r-green',
   warning: 'border-r-yellow',
   danger: '!border-r-red',
-  light: 'border-trans !border-r-white',
+  light: 'border-r-white',
 };
 
 const Spinner = ({
@@ -40,7 +40,7 @@ const Spinner = ({
 }: Props) => {
   if (!appearance)
     throw new Error(
-      'Spinner appearence must be one of this [primary, secondary, success, warning, danger]'
+      'Spinner appearence must be one of this [primary, secondary, success, warning, danger, light]'
     );
 
   return (
