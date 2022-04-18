@@ -40,5 +40,10 @@ export const Sizes: ComponentStory<typeof Spinner> = () => (
     <Spinner appearance="primary" size="sm" />
     <Spinner appearance="success" size="md" />
     <Spinner appearance="danger" size="lg" />
+    <Spinner appearance="warning" size="xl" />
+    <Spinner appearance="secondary" size="2xl" />
+    <div className="p-1 bg-black">
+      <Spinner appearance="light" size="3xl" />
+    </div>
   </div>
 );
