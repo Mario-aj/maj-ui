@@ -1,5 +1,5 @@
 {
-  "name": "@maj/react-ui",
+  "name": "maj-react-ui",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,6 +17,9 @@
     "components",
     "design-system",
     "react-components"
+  ],
+  "files": [
+    "dist"
   ],
   "license": "MIT",
   "devDependencies": {

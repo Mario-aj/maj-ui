@@ -1,8 +1,9 @@
-# @maj/react-ui
+# maj-react-ui
 
 - My daily components in one place.
 
 ## Documentation.
+
 You can find doc of each component [here](https://mario-aj.github.io/react-ui/)
 
 ## Techs.
@@ -54,9 +55,11 @@ Merging to the `main` branch will automatically deploy to github pages.
 
 ## Contributing
 
-I'd love to have your helping hand on <strong>@maj/react-ui</strong>! See <a href="https://github.com/Mario-aj/react-ui/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md</a> for more information on how to get started.
+I'd love to have your helping hand on <strong>maj-react-ui</strong>! See <a href="https://github.com/Mario-aj/react-ui/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md</a> for more information on how to get started.
 
 ## <img class="emoji" height="20" width="20"  src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png" alt="licence-icon"/> License
+
+maj-react-ui is [MIT licensed](https://github.com/Mario-aj/react-ui/blob/dev/LICENSE)
 
 ## ✍🏻 Creator
 
