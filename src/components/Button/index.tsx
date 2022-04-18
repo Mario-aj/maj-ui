@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import { Spinner } from '..';
 
 import { ButtonProps } from './types';
 import { prepareClassName } from './helpers';
@@ -16,13 +16,16 @@ const Button = ({
   appearance = 'primary',
   ...props
 }: ButtonProps) => {
-  if (!appearance) throw new Error('Button appearance is required');
+  if (!appearance)
+    throw new Error(
+      'Button appearence must be one of this [primary, secondary, success, warning, danger, none]'
+    );
 
   const classes = prepareClassName({ size, appearance, className, outlined });
 
   return (
     <button className={classes} type={type} {...props}>
-      {loading && <AiOutlineLoading3Quarters className="animate-spin" />}
+      {loading && <Spinner appearance="light" size="sm" />}
       {!loading && startIcon && startIcon}
       {label}
       {!loading && endIcon && endIcon}
