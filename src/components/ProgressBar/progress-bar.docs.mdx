@@ -1,0 +1,55 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { ProgressBar } from '.';
+
+# ProgressBar
+
+<Canvas>
+  <Story id="components-progressbar--primary" />
+</Canvas>
+
+**_OBS_**: By default, ProgressBar component has width 100%, so, if you want change that, you must wrapper the component with div
+
+```
+<div className="w-40">
+  <ProgressBar />
+</div>
+```
+
+- it means, that the width of ProgressBar will be 10rem(160px).
+
+<ArgsTable of={ProgressBar} />
+
+## Stories
+
+### Secondary
+
+<Canvas>
+  <Story id="components-progressbar--secondary" />
+</Canvas>
+
+### Success
+
+<Canvas>
+  <Story id="components-progressbar--success" />
+</Canvas>
+
+### Warning
+
+<Canvas>
+  <Story id="components-progressbar--warning" />
+</Canvas>
+
+### Danger
+
+<Canvas>
+  <Story id="components-progressbar--danger" />
+</Canvas>
+
+### Light
+
+<Canvas>
+  <div className="bg-black h-10 flex items-center">
+    <Story id="components-progressbar--light" />
+  </div>
+</Canvas>
