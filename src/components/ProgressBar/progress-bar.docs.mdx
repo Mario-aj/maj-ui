@@ -4,19 +4,11 @@ import { ProgressBar } from '.';
 
 # ProgressBar
 
+Is a simple stateless component that renders the appropriate HTML markup
+
 <Canvas>
   <Story id="components-progressbar--primary" />
 </Canvas>
-
-**_OBS_**: By default, ProgressBar component has width 100%, so, if you want change that, you must wrapper the component with div
-
-```
-<div className="w-40">
-  <ProgressBar />
-</div>
-```
-
-- it means, that the width of ProgressBar will be 10rem(160px).
 
 <ArgsTable of={ProgressBar} />
 
@@ -48,8 +40,31 @@ import { ProgressBar } from '.';
 
 ### Light
 
+**obs:** We Added a black background so the progress light is visible, in normal use this comes with no background.
+
 <Canvas>
   <div className="bg-black h-10 flex items-center">
     <Story id="components-progressbar--light" />
   </div>
 </Canvas>
+
+### Sizes
+
+<Canvas>
+  <div className="flex flex-col gap-4 justify-center">
+    <ProgressBar appearance="danger" value={66} size="sm" />
+    <ProgressBar appearance="danger" value={66} size="md" />
+    <ProgressBar appearance="danger" value={66} size="lg" />
+    <ProgressBar appearance="danger" value={66} size="xl" />
+  </div>
+</Canvas>
+
+**_OBS_**: By default the ProgressBar component has width of 100% so if you want to change that you should wrap the component with div.
+
+```
+<div className="w-40">
+  <ProgressBar />
+</div>
+```
+
+it means, that the width of ProgressBar will be 10rem(160px).

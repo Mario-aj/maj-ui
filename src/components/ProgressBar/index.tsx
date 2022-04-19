@@ -8,11 +8,14 @@ type Props = {
   className?: string;
 
   /**
-   * The value that define the width of progress status.
-   *
-   * The value must be a number from 0 to 100. that's corresponing in percentage.
+   *  Value between 0 and 100 (inclusive) that determines the width of the progress meter. Values below 0 or above 100 will be interpreted as 0 or 100 respectively.
    */
-  progressValue: number;
+  value: number;
+
+  /**
+   * Progress height size
+   */
+  size?: 'sm' | 'md' | 'lg' | 'xl';
 
   /**
    * Visual appearence color to apply to element.
@@ -37,26 +40,40 @@ const classes = {
   light: 'bg-white',
 };
 
-const ProgressBar = ({ appearance, progressValue, className }: Props) => {
+const sizes = {
+  sm: 'h-1',
+  md: 'h-2',
+  lg: 'h-3',
+  xl: 'h-4',
+};
+
+const progressValue = (value: number) => {
+  if (value > 100) {
+    return 100;
+  } else if (value < 0) {
+    return 0;
+  }
+
+  return value;
+};
+
+const ProgressBar = ({ appearance, value, className, size = 'md' }: Props) => {
   if (!appearance)
     throw new Error(
       'ProgressBar appearence must be one of this [primary, secondary, success, warning, danger, light]'
     );
 
-  if (!progressValue || (progressValue < 0 && progressValue > 100))
-    throw new Error(
-      'ProgressValue is required and must be a number between 0 and 100'
-    );
+  value = progressValue(value);
 
   return (
-    <div className="w-full h-2 bg-gray-300 rounded-lg">
+    <div className={cx('w-full bg-gray-300 rounded-lg', sizes[size])}>
       <div
         className={cx(
-          'h-full overflow-hidden rounded-lg progress-animation',
+          'h-full overflow-hidden rounded-lg',
           classes[appearance],
-          className
+          !className
         )}
-        style={{ width: `${progressValue}%` }}
+        style={{ width: `${value}%` }}
       />
     </div>
   );

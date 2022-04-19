@@ -25,35 +25,35 @@ const Template: ComponentStory<typeof ProgressBar> = args => (
 export const Primary = Template.bind({});
 Primary.args = {
   appearance: 'primary',
-  progressValue: 40,
+  value: 40,
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   appearance: 'secondary',
-  progressValue: 78,
+  value: 78,
 };
 
 export const Success = Template.bind({});
 Success.args = {
   appearance: 'success',
-  progressValue: 69,
+  value: 69,
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
   appearance: 'warning',
-  progressValue: 97,
+  value: 97,
 };
 
 export const Danger = Template.bind({});
 Danger.args = {
   appearance: 'danger',
-  progressValue: 18,
+  value: 18,
 };
 
 export const Light = Template.bind({});
 Light.args = {
   appearance: 'light',
-  progressValue: 18,
+  value: 18,
 };
