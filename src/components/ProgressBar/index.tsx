@@ -20,8 +20,6 @@ type Props = {
 
   /**
    * Visual appearence color to apply to element.
-   * Constants are available for common colors
-   *  - primary = #5F91CC, secondary = #C1C1C1, success = #5BCA8A, warning = #F0B858, danger = #D6394C, light =#FFF ,
    */
   appearance:
     | 'primary'
