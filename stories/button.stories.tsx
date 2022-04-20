@@ -47,8 +47,8 @@ Success.args = {
 
 export const None = Template.bind({});
 None.args = {
-  label: 'none',
-  appearance: 'none',
+  label: 'light',
+  appearance: 'light',
 };
 
 export const StartIcon = Template.bind({});
