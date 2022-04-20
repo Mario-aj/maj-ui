@@ -38,16 +38,3 @@
     justify-content: center;
   }
 }
-
-@keyframes spinner {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.spin-animation {
-  animation: spinner 0.7s linear infinite;
-}
