@@ -32,7 +32,7 @@ const container = ({ size = 'md', appearance }: ContainerProps) => css`
   height: ${sizes[size]};
   border: 2px rgb(209 213 219) solid;
   border-radius: 50%;
-  border-right-color: ${colors[appearance].default};
+  border-right-color: ${colors[appearance].normal.default};
   animation: ${spinner} 0.7s linear infinite;
 `;
 

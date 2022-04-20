@@ -39,7 +39,7 @@ const progressStyle = ({
 
   border-radius: 0.5rem;
   overflow: hidden;
-  background-color: ${colors[appearance].default};
+  background-color: ${colors[appearance].normal.default};
 `;
 
 export const Wrapper = styled('div')<WrapperProps>(wrapperStyle);
