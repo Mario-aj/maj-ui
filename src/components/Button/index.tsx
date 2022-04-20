@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { Spinner } from '..';
 
-import { prepareClassName } from './helpers';
+import { Container } from './styles';
 
 type Props = {
   /**
@@ -64,17 +64,17 @@ type Props = {
     | 'success'
     | 'warning'
     | 'danger'
-    | 'none';
+    | 'light';
 };
 
 const Button = ({
   label,
   endIcon,
   startIcon,
-  className = '',
   type = 'button',
   size = 'medium',
   loading = false,
+  disabled = false,
   outlined = false,
   appearance = 'primary',
   ...props
@@ -84,15 +84,22 @@ const Button = ({
       'Button appearence must be one of this [primary, secondary, success, warning, danger, none]'
     );
 
-  const classes = prepareClassName({ size, appearance, className, outlined });
+  const spinnerAppearance = outlined && !disabled ? appearance : 'light';
 
   return (
-    <button className={classes} type={type} {...props}>
-      {loading && <Spinner appearance="light" size="sm" />}
+    <Container
+      appearance={appearance}
+      outlined={outlined}
+      disabled={disabled}
+      type={type}
+      size={size}
+      {...props}
+    >
+      {loading && <Spinner appearance={spinnerAppearance} size="sm" />}
       {!loading && startIcon && startIcon}
       {label}
       {!loading && endIcon && endIcon}
-    </button>
+    </Container>
   );
 };
 
