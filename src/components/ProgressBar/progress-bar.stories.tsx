@@ -46,5 +46,5 @@ Danger.args = {
 export const Light = Template.bind({});
 Light.args = {
   appearance: 'light',
-  value: 18,
+  value: 45,
 };
