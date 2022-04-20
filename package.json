@@ -24,8 +24,6 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.17.9",
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
     "@storybook/addon-actions": "^6.4.20",
     "@storybook/addon-docs": "^6.3.6",
     "@storybook/addon-essentials": "^6.4.20",
@@ -50,16 +48,16 @@
   "scripts": {
     "dev": "start-storybook -p 6006",
     "lint": "eslint --ext ./src/**/*.{js,jsx,ts,tsx}",
-    "build": "build-storybook"
+    "build": "build-storybook",
+    "tsc": "rm -rf dist && tsc"
   },
   "peerDependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
     "react-icons": "^4.3.1"
   }
 }
