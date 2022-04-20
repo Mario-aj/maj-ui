@@ -2,15 +2,17 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ProgressBar } from '../src';
 
+import { StoryContainer } from '../src/components/ProgressBar/styles';
+
 export default {
   title: 'Components/ProgressBar',
   component: ProgressBar,
 } as ComponentMeta<typeof ProgressBar>;
 
 const Template: ComponentStory<typeof ProgressBar> = args => (
-  <div className="w-72">
+  <StoryContainer>
     <ProgressBar {...args} />
-  </div>
+  </StoryContainer>
 );
 
 export const Primary = Template.bind({});
