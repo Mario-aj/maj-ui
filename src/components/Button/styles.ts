@@ -16,7 +16,7 @@ const container = () => css`
   gap: 0.5rem;
 
   white-space: nowrap;
-  padding: 0.375rem 1rem;
+  padding: 0.75rem 1rem;
   border-radius: 0.25rem;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   font-size: 1rem;
