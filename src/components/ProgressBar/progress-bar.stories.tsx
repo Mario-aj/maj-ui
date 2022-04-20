@@ -2,18 +2,9 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ProgressBar } from '.';
 
-//@ts-ignore
-import docs from './progress-bar.docs.mdx';
-
 export default {
   title: 'Components/ProgressBar',
   component: ProgressBar,
-
-  parameters: {
-    docs: {
-      page: docs,
-    },
-  },
 } as ComponentMeta<typeof ProgressBar>;
 
 const Template: ComponentStory<typeof ProgressBar> = args => (
