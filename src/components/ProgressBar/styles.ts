@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { ProgressBarProps } from '.';
 import { colors } from '../../styles';
 
-type WrapperProps = React.HTMLAttributes<HTMLDivElement> &
+type ContainerProps = React.HTMLAttributes<HTMLDivElement> &
   Pick<ProgressBarProps, 'size'>;
 
 type ProgressProps = React.HTMLAttributes<HTMLDivElement> &
@@ -17,8 +17,8 @@ const sizes = {
   xl: '1rem',
 };
 
-const wrapperStyle = ({ size = 'md' }: Pick<WrapperProps, 'size'>) => css`
-  label: wrapper;
+const ContainerStyle = ({ size = 'md' }: Pick<ContainerProps, 'size'>) => css`
+  label: Container;
 
   width: 100%;
   height: 0.5rem;
@@ -42,5 +42,8 @@ const progressStyle = ({
   background-color: ${colors[appearance].normal.default};
 `;
 
-export const Wrapper = styled('div')<WrapperProps>(wrapperStyle);
+export const Container = styled('div')<ContainerProps>(ContainerStyle);
 export const Progress = styled('div')<ProgressProps>(progressStyle);
+export const StoryContainer = styled('div')`
+  width: 300px;
+`;

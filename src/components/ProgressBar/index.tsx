@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Wrapper, Progress } from './styles';
+import { Container, Progress } from './styles';
 
 type Props = {
   /**
@@ -49,9 +49,9 @@ const ProgressBar = ({ appearance, value, className, size = 'md' }: Props) => {
   value = progressValue(value);
 
   return (
-    <Wrapper size={size}>
+    <Container size={size}>
       <Progress appearance={appearance} value={value} className={className} />
-    </Wrapper>
+    </Container>
   );
 };
 
