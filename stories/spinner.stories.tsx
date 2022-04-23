@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Spinner } from '.';
+import { Spinner } from '../src';
 
 export default {
   title: 'Components/Spinner',
@@ -36,14 +36,12 @@ Danger.args = {
 };
 
 export const Sizes: ComponentStory<typeof Spinner> = () => (
-  <div className="flex items-center gap-4">
+  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
     <Spinner appearance="primary" size="sm" />
     <Spinner appearance="success" size="md" />
     <Spinner appearance="danger" size="lg" />
     <Spinner appearance="warning" size="xl" />
     <Spinner appearance="secondary" size="2xl" />
-    <div className="p-1 bg-black">
-      <Spinner appearance="light" size="3xl" />
-    </div>
+    <Spinner appearance="light" size="3xl" />
   </div>
 );

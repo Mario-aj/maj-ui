@@ -1,23 +1,15 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ProgressBar } from '.';
 
-//@ts-ignore
-import docs from './progress-bar.docs.mdx';
+import { ProgressBar } from '../src';
 
 export default {
   title: 'Components/ProgressBar',
   component: ProgressBar,
-
-  parameters: {
-    docs: {
-      page: docs,
-    },
-  },
 } as ComponentMeta<typeof ProgressBar>;
 
 const Template: ComponentStory<typeof ProgressBar> = args => (
-  <div className="w-72">
+  <div style={{ width: 300 }}>
     <ProgressBar {...args} />
   </div>
 );
@@ -55,5 +47,14 @@ Danger.args = {
 export const Light = Template.bind({});
 Light.args = {
   appearance: 'light',
-  value: 18,
+  value: 45,
 };
+
+export const Sizes: ComponentStory<typeof ProgressBar> = () => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+    <ProgressBar appearance="primary" value={50} size="sm" />
+    <ProgressBar appearance="success" value={50} size="md" />
+    <ProgressBar appearance="danger" value={50} size="lg" />
+    <ProgressBar appearance="warning" value={50} size="xl" />
+  </div>
+);

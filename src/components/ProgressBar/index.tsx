@@ -1,5 +1,6 @@
 import React from 'react';
-import { cx } from '../../utils';
+
+import { Container, Progress } from './styles';
 
 type Props = {
   /**
@@ -19,8 +20,6 @@ type Props = {
 
   /**
    * Visual appearence color to apply to element.
-   * Constants are available for common colors
-   *  - primary = #5F91CC, secondary = #C1C1C1, success = #5BCA8A, warning = #F0B858, danger = #D6394C, light =#FFF ,
    */
   appearance:
     | 'primary'
@@ -29,22 +28,6 @@ type Props = {
     | 'warning'
     | 'danger'
     | 'light';
-};
-
-const classes = {
-  primary: 'bg-blue',
-  secondary: 'bg-gray-dark',
-  success: 'bg-green',
-  warning: 'bg-yellow',
-  danger: 'bg-red',
-  light: 'bg-white',
-};
-
-const sizes = {
-  sm: 'h-1',
-  md: 'h-2',
-  lg: 'h-3',
-  xl: 'h-4',
 };
 
 const progressValue = (value: number) => {
@@ -66,17 +49,11 @@ const ProgressBar = ({ appearance, value, className, size = 'md' }: Props) => {
   value = progressValue(value);
 
   return (
-    <div className={cx('w-full bg-gray-300 rounded-lg', sizes[size])}>
-      <div
-        className={cx(
-          'h-full overflow-hidden rounded-lg',
-          classes[appearance],
-          !className
-        )}
-        style={{ width: `${value}%` }}
-      />
-    </div>
+    <Container size={size}>
+      <Progress appearance={appearance} value={value} className={className} />
+    </Container>
   );
 };
 
+export type { Props as ProgressBarProps };
 export { ProgressBar };

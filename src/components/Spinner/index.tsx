@@ -1,5 +1,6 @@
 import React from 'react';
-import { cx } from '../../utils';
+
+import { Container } from './styles';
 
 type Props = {
   /**
@@ -29,24 +30,6 @@ type Props = {
     | 'light';
 };
 
-const classes = {
-  primary: 'border-r-blue',
-  secondary: 'border-r-gray-dark',
-  success: 'border-r-green',
-  warning: 'border-r-yellow',
-  danger: '!border-r-red',
-  light: 'border-r-white',
-};
-
-const sizes = {
-  sm: 'w-6 h-6',
-  md: 'w-10 h-10',
-  lg: 'w-16 h-16',
-  xl: 'w-20 h-20',
-  '2xl': 'w-24 h-24',
-  '3xl': 'w-28 h-28',
-};
-
 const Spinner = ({ className, size = 'md', appearance = 'primary' }: Props) => {
   if (!appearance)
     throw new Error(
@@ -54,14 +37,7 @@ const Spinner = ({ className, size = 'md', appearance = 'primary' }: Props) => {
     );
 
   return (
-    <div
-      className={cx(
-        'border-2 border-gray-300 border-solid rounded-full spin-animation',
-        sizes[size],
-        classes[appearance],
-        className
-      )}
-    />
+    <Container className={className} size={size} appearance={appearance} />
   );
 };
 
