@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Container, Item, ItemIndicator } from './styles';
+import { Container, Item } from './styles';
 
 type Props = {
   /**
@@ -49,21 +49,16 @@ const Tabs = ({ tabs, selectedTab, textColor, ...props }: Props) => {
   return (
     <Container>
       {tabs.map(tab => (
-        <div key={tab.id}>
-          <Item
-            isActive={selected === tab.id}
-            onClick={() => setSelected(tab.id)}
-            color={textColor}
-            {...props}
-          >
-            {tab.label}
-          </Item>
-          <ItemIndicator
-            indicatorColor={props.indicatorColor}
-            appearance={props.appearance}
-            isActive={selected === tab.id}
-          />
-        </div>
+        <Item
+          key={tab.id}
+          isActive={selected === tab.id}
+          onClick={() => setSelected(tab.id)}
+          color={textColor}
+          {...props}
+        >
+          <span>{tab.label}</span>
+          <div className="item-indicator" />
+        </Item>
       ))}
     </Container>
   );

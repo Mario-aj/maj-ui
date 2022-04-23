@@ -11,11 +11,6 @@ type ItemProps = React.HTMLAttributes<HTMLDivElement> &
     isActive: boolean;
   };
 
-type ItemIndicatorProps = Pick<
-  ItemProps,
-  'appearance' | 'indicatorColor' | 'isActive'
->;
-
 const containerStyle = () => css`
   label: container;
 
@@ -37,45 +32,42 @@ const itemStyle = () => css`
   line-height: 1.25rem;
   letter-spacing: 0.02857em;
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  padding: 0 1rem;
-  position: relative;
   flex-shrink: 0;
 
   transition: all 300ms ease-in-out;
+
+  span {
+    display: inline-block;
+    padding: 0 0.75rem;
+  }
 `;
 
 const itemActiveStyle = ({
   isActive,
   color,
   appearance = 'primary',
+  indicatorColor,
 }: ItemProps) =>
   isActive &&
   css`
     label: container__item--active;
 
     color: ${color || colors[appearance].normal.default};
-  `;
 
-const itemIndicatorStyle = ({
-  indicatorColor,
-  appearance = 'primary',
-  isActive,
-}: ItemIndicatorProps) =>
-  isActive &&
-  css`
-    label: container__item--indicator;
+    div[class*='item-indicator'] {
+      label: container__item--indicator;
 
-    display: block;
-    position: relative;
-    bottom: -12px;
-    width: 100%;
-    height: 2px;
-    left: 0;
-    background-color: ${indicatorColor || colors[appearance].normal.default};
-    border-radius: 4px;
-    transition: all 300ms ease-in-out;
+      display: block;
+      position: relative;
+      bottom: -12px;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      background-color: ${indicatorColor || colors[appearance].normal.default};
+      border-radius: 2px;
+      transition: all 300ms ease-in-out;
+    }
   `;
 
 export const Container = styled('div')(containerStyle);
 export const Item = styled('div')(itemStyle, itemActiveStyle);
-export const ItemIndicator = styled('div')(itemIndicatorStyle);
