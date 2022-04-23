@@ -1,6 +1,6 @@
 # maj-ui
 
-- My daily components React-based UI toolkit for the web.
+-My daily React-based UI components for the web.
 
 ## Documentation.
 
@@ -8,12 +8,14 @@ You can find the doc [here](https://mario-aj.github.io/maj-ui/)
 
 ## Installation
 
+```
 yarn add maj-ui
+```
 
 ## Usage
 
 ```jsx
-import { Button } from 'maj-react-ui';
+import { Button } from 'maj-ui';
 
 const IncrementButton = () => {
   return (
