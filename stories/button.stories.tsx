@@ -66,9 +66,24 @@ EndIcon.args = {
 };
 
 export const sizes = () => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-    <Button appearance="primary" label="small" size="sm" />
-    <Button appearance="primary" label="medium" size="md" />
-    <Button appearance="primary" label="large" size="lg" />
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      gap: '12px',
+    }}
+  >
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <Button appearance="primary" label="small" size="sm" />
+      <Button appearance="primary" label="medium" size="md" />
+      <Button appearance="primary" label="large" size="lg" />
+    </div>
+
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <Button appearance="primary" label="small" size="sm" outlined />
+      <Button appearance="primary" label="medium" size="md" outlined />
+      <Button appearance="primary" label="large" size="lg" outlined />
+    </div>
   </div>
 );
