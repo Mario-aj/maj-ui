@@ -72,3 +72,8 @@ export const colors = {
     },
   },
 };
+
+export const textColor = {
+  dark: '#1f2937',
+  light: '#fff',
+};
