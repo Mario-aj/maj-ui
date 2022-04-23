@@ -15,14 +15,23 @@ const container = () => css`
   justify-content: center;
   gap: 0.5rem;
 
+  text-transform: uppercase;
+  user-select: none;
+  border: none;
   white-space: nowrap;
-  padding: 0.75rem 1rem;
+  padding: 0.625rem 1rem;
   border-radius: 0.25rem;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  font-size: 1rem;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  cursor: pointer;
   color: #fff;
 
-  transition: all 0.2s ease-in;
+  font-weight: 500;
+  line-height: 1.75;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.02857em;
+
+  transition: all 0.3s ease-in;
 
   :active {
     box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
@@ -34,31 +43,25 @@ const container = () => css`
   }
 `;
 
-const outlinedStyles = ({ outlined }: ContainerProps) =>
-  outlined &&
-  css`
-    background: #fff;
-    border: 1px solid;
-
-    :disabled {
-      border-color: rgb(209 213 219);
-      background: #fff;
-    }
-  `;
-
 const variantStyles = ({ appearance, outlined }: ContainerProps) => css`
   label: container-variant-${appearance};
 
   ${outlined
     ? css`
         color: ${colors[appearance].normal.default};
-        border-color: ${colors[appearance].normal.default};
+        background: #fff;
+        border: 1px solid ${colors[appearance].normal.default};
 
         :hover {
           background: ${colors[appearance].outlined.hovered};
         }
         :active {
           background: ${colors[appearance].outlined.active};
+        }
+
+        :disabled {
+          border-color: rgb(209 213 219);
+          background: #fff;
         }
 
         :disabled:hover {
@@ -91,44 +94,44 @@ const lightStyles = ({ appearance }: ContainerProps) =>
     color: #4b5563;
   `;
 
-const fullSizeStyles = ({ size }: ContainerProps) =>
-  size === 'full' &&
+const fullStyles = ({ full }: ContainerProps) =>
+  full &&
   css`
-    label: container-size-full;
+    label: container-full;
 
     width: 100%;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   `;
 
 const smallSizeStyles = ({ size }: ContainerProps) =>
-  size === 'small' &&
+  size === 'sm' &&
   css`
     label: container-size-small;
 
-    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.75;
+    font-size: 0.8125rem;
     line-height: 1.25rem;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    letter-spacing: 0.02857em;
+    padding: 0.375rem 0.75rem;
   `;
 
 const largeSizeStyles = ({ size }: ContainerProps) =>
-  size === 'large' &&
+  size === 'lg' &&
   css`
     label: container-size-large;
 
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.75;
+    padding: 0.65rem 1.25rem;
+    letter-spacing: 0.02857em;
   `;
 
 export const Container = styled('button')<ContainerProps>(
   container,
-  outlinedStyles,
   variantStyles,
   lightStyles,
-  fullSizeStyles,
+  fullStyles,
   smallSizeStyles,
   largeSizeStyles
 );

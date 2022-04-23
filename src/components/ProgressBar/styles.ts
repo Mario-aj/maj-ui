@@ -44,6 +44,3 @@ const progressStyle = ({
 
 export const Container = styled('div')<ContainerProps>(ContainerStyle);
 export const Progress = styled('div')<ProgressProps>(progressStyle);
-export const StoryContainer = styled('div')`
-  width: 300px;
-`;

@@ -8,9 +8,9 @@ type ContainerProps = React.HTMLAttributes<HTMLDivElement> &
   Pick<SpinnerProps, 'appearance' | 'size'>;
 
 const sizes = {
-  sm: '1.5rem',
-  md: '2.5rem',
-  lg: '4rem',
+  sm: '1rem',
+  md: '2rem',
+  lg: '3.5rem',
   xl: '5rem',
   '2xl': '6rem',
   '3xl': '7rem',

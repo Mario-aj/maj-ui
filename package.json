@@ -1,5 +1,5 @@
 {
-  "name": "maj-react-ui",
+  "name": "maj-ui",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -49,7 +49,7 @@
     "dev": "start-storybook -p 6006",
     "lint": "eslint --ext ./src/**/*.{js,jsx,ts,tsx}",
     "build": "build-storybook",
-    "tsc": "rm -rf dist && tsc"
+    "tsc": "rm -rf dist && tsc && npm pack"
   },
   "peerDependencies": {
     "react": "^17.0.2",
