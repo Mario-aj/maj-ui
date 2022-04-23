@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "git@github.com:Mario-aj/react-ui.git",
+  "repository": "git@github.com:Mario-aj/maj-ui.git",
   "author": "mario-aj <mariojorge1997@mail.ru>",
   "bugs": {
-    "url": "https://github.com/Mario-aj/react-ui/issues"
+    "url": "https://github.com/Mario-aj/maj-ui/issues"
   },
-  "homepage": "https://mario-aj.github.io/react-ui/?path=/story/introduction--page",
+  "homepage": "https://mario-aj.github.io/maj-ui/?path=/story/introduction--page",
   "keywords": [
     "ui",
     "react",
+    "maj-ui",
     "react-ui",
     "storybook",
     "components",
