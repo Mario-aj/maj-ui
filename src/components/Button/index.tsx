@@ -48,7 +48,13 @@ type Props = {
   /**
    * The size of button.
    */
-  size?: 'small' | 'medium' | 'large' | 'full';
+  size?: 'sm' | 'md' | 'lg';
+
+  /**
+   * Define if button will stretch to full width.
+   */
+
+  full?: boolean;
 
   /**
    * onClick handler of button.
@@ -72,7 +78,7 @@ const Button = ({
   endIcon,
   startIcon,
   type = 'button',
-  size = 'medium',
+  size = 'md',
   loading = false,
   disabled = false,
   outlined = false,
