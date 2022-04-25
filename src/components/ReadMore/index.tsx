@@ -68,7 +68,7 @@ const ReadMore = ({
 
   return (
     <Container title="Read more" aria-label="read more">
-      {showPessadText && <p>{text}</p>}
+      {showPessadText && <p className={textClassName}>{text}</p>}
       {!showPessadText && (
         <>
           <p className={textClassName}>
