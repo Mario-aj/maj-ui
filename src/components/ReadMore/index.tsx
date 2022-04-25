@@ -55,13 +55,13 @@ function getTextToShow({ text, min = MIN }: GetTextToShowProps) {
 
 const ReadMore = ({
   text,
+  min = MIN,
   textClassName,
   buttonClassName,
   readMoreText = 'Read more',
   readLessText = 'Read less',
-  min = MIN,
 }: Props) => {
-  const [more, setMore] = useState(false);
+  const [showMore, setShowMore] = useState(false);
   const [primaryText, secondaryText] = getTextToShow({ text, min });
 
   const showPessadText = text.length <= min;
@@ -72,15 +72,15 @@ const ReadMore = ({
       {!showPessadText && (
         <>
           <p className={textClassName}>
-            {`${primaryText}${more ? secondaryText : '...'}`}
+            {`${primaryText}${showMore ? secondaryText : '...'}`}
           </p>
           <button
             type="button"
             aria-label="read button"
             className={buttonClassName}
-            onClick={() => setMore(current => !current)}
+            onClick={() => setShowMore(current => !current)}
           >
-            {more ? readLessText : readMoreText}
+            {showMore ? readLessText : readMoreText}
           </button>
         </>
       )}
