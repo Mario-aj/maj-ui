@@ -36,16 +36,15 @@ type Props = {
 
 type GetTextToShowProps = Pick<Props, 'text' | 'min'>;
 
-const min_default = 250;
+const MIN = 250;
 
-function getTextToShow({ text, min = min_default }: GetTextToShowProps) {
+function getTextToShow({ text, min = MIN }: GetTextToShowProps) {
   const characters = ['.', ',', ' ', '?', '!', '\n'];
   let i = min;
   let j = min;
 
   while (true) {
-    if (characters.includes(text[i]))
-      return [text.slice(0, i), text.slice(i + 1)];
+    if (characters.includes(text[i])) return [text.slice(0, i), text.slice(i)];
 
     if (characters.includes(text[j])) return [text.slice(0, j), text.slice(j)];
 
@@ -60,7 +59,7 @@ const ReadMore = ({
   buttonClassName,
   readMoreText = 'Read more',
   readLessText = 'Read less',
-  min = min_default,
+  min = MIN,
 }: Props) => {
   const [more, setMore] = useState(false);
   const [primaryText, secondaryText] = getTextToShow({ text, min });

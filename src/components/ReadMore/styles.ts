@@ -10,21 +10,21 @@ const container = () => css`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
   gap: 1rem;
 
   button {
-    text-transform: uppercase;
     background-color: transparent;
-    border: none;
-    cursor: pointer;
     color: ${colors.primary.normal.default};
+
     font-weight: 500;
     line-height: 1.75;
     font-size: 0.875rem;
     line-height: 1.25rem;
+    text-transform: uppercase;
     font-family: 'Roboto', Helvetica, Arial, sans-serif;
 
+    border: none;
+    cursor: pointer;
     transition: filter 300ms ease-in-out;
   }
 
@@ -34,6 +34,7 @@ const container = () => css`
 
   p {
     color: ${textColor.dark};
+
     font-weight: 400;
     line-height: 1.75;
     font-size: 1rem;
