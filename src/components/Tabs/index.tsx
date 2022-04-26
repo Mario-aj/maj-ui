@@ -24,7 +24,7 @@ type Props = {
   selectedTab?: string | number;
 
   /**
-   *
+   * The id list of the tabs that should be disabled.
    */
   disabledTab?: Array<string> | Array<number>;
 
@@ -57,27 +57,21 @@ type Props = {
 
 const Tabs = ({
   tabs,
-  selectedTab,
-  textColor,
-  disabledTab = [],
   onSelect,
+  textColor,
+  selectedTab,
+  disabledTab = [],
   ...props
 }: Props) => {
   const [selected, setSelected] = useState(selectedTab);
 
-  const handleTabClick = useCallback(
+  const handleClick = useCallback(
     (tab: TabProps) => {
-      if (!disabledTab.length) {
-        setSelected(tab.id);
-        onSelect && onSelect(tab);
-      }
+      //@ts-ignore
+      if (disabledTab.includes(tab.id)) return;
 
-      if (disabledTab.length) {
-        // @ts-ignore
-        if (disabledTab.includes(tab.id)) return;
-        setSelected(tab.id);
-        onSelect && onSelect(tab);
-      }
+      setSelected(tab.id);
+      onSelect && onSelect(tab);
     },
     [disabledTab]
   );
@@ -88,7 +82,7 @@ const Tabs = ({
         <Tab
           key={tab.id}
           isActive={selected === tab.id}
-          onClick={() => handleTabClick(tab)}
+          onClick={() => handleClick(tab)}
           color={textColor}
           // @ts-ignore
           disabled={disabledTab.includes(tab.id)}

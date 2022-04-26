@@ -78,7 +78,7 @@ const tabDisabledStyle = ({ disabled }: TabProps) =>
     label: container__tab--disabled;
 
     opacity: 0.5;
-    cursor: not-allowed !important;
+    cursor: not-allowed;
   `;
 
 export const Container = styled('div')(containerStyle);
