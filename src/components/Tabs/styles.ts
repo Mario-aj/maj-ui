@@ -2,9 +2,9 @@ import * as React from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { TabsProps } from '.';
+import type { TabsProps } from '.';
 
-import { textColor, colors } from '../../styles';
+import { textColor, colors } from '../../shared/styles';
 
 type TabProps = React.HTMLAttributes<HTMLDivElement> &
   Pick<TabsProps, 'indicatorColor' | 'appearance'> & {

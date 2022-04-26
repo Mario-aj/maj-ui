@@ -2,12 +2,13 @@
 import React, { useCallback, useState } from 'react';
 
 import { Container, Tab } from './styles';
+import { SharedProps } from '../../shared/types';
 
 type TabProps = {
   label: string | React.ReactNode;
   id: string | number;
 };
-type Props = {
+export type TabsProps = {
   /**
    * Class name of the component.
    */
@@ -44,15 +45,9 @@ type Props = {
   textColor?: string;
 
   /**
-   * The appearance of the tab.
+   *  The appearance of the component.
    */
-  appearance?:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'light';
+  appearance?: SharedProps['appearance'];
 };
 
 const Tabs = ({
@@ -62,7 +57,7 @@ const Tabs = ({
   selectedTab,
   disabledTab = [],
   ...props
-}: Props) => {
+}: TabsProps) => {
   const [selected, setSelected] = useState(selectedTab);
 
   const handleClick = useCallback(
@@ -96,5 +91,4 @@ const Tabs = ({
   );
 };
 
-export type { Props as TabsProps };
 export { Tabs };
