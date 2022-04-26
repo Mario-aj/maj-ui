@@ -15,11 +15,10 @@ const container = () => css`
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 1rem;
 
   button {
-    font-size: 0.875rem;
+    align-self: flex-start;
   }
 `;
 
