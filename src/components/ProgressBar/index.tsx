@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { Container, Progress } from './styles';
+import { SharedProps } from '../../shared/types';
 
-type Props = {
+export type ProgressBarProps = SharedProps & {
   /**
    * List of class names to pass along to spinner component.
    */
@@ -17,17 +18,6 @@ type Props = {
    * Progress height size
    */
   size?: 'sm' | 'md' | 'lg' | 'xl';
-
-  /**
-   * Visual appearence color to apply to element.
-   */
-  appearance:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'light';
 };
 
 const progressValue = (value: number) => {
@@ -40,7 +30,12 @@ const progressValue = (value: number) => {
   return value;
 };
 
-const ProgressBar = ({ appearance, value, className, size = 'md' }: Props) => {
+const ProgressBar = ({
+  appearance,
+  value,
+  className,
+  size = 'md',
+}: ProgressBarProps) => {
   if (!appearance)
     throw new Error(
       'ProgressBar appearence must be one of this [primary, secondary, success, warning, danger, light]'
@@ -55,5 +50,4 @@ const ProgressBar = ({ appearance, value, className, size = 'md' }: Props) => {
   );
 };
 
-export type { Props as ProgressBarProps };
 export { ProgressBar };

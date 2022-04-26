@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { ButtonProps } from '.';
-import { colors } from '../../styles';
+import type { ButtonProps } from '.';
+import { colors } from '../../shared/styles';
 
 type ContainerProps = React.HTMLAttributes<HTMLButtonElement> &
   Omit<ButtonProps, 'label' | 'startIcon' | 'endIcon'>;

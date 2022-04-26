@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Tabs } from '../src';
+import { Tabs } from '.';
 
 type TabProps = {
   label: string | React.ReactNode;

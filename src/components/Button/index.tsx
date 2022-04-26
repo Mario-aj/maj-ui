@@ -3,8 +3,9 @@ import * as React from 'react';
 import { Spinner } from '..';
 
 import { Container } from './styles';
+import { SharedProps } from '../../shared/types';
 
-type Props = {
+export type ButtonProps = SharedProps & {
   /**
    * The label of the button.
    */
@@ -60,17 +61,6 @@ type Props = {
    * onClick handler of button.
    */
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-
-  /**
-   * The appearance of the button.
-   */
-  appearance:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'light';
 };
 
 const Button = ({
@@ -84,7 +74,7 @@ const Button = ({
   outlined = false,
   appearance = 'primary',
   ...props
-}: Props) => {
+}: ButtonProps) => {
   if (!appearance)
     throw new Error(
       'Button appearence must be one of this [primary, secondary, success, warning, danger, none]'
@@ -109,5 +99,4 @@ const Button = ({
   );
 };
 
-export type { Props as ButtonProps };
 export { Button };

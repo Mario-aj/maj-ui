@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { textColor } from '../../styles';
+import { textColor } from '../../shared/styles';
 
 type TextProps = React.HTMLAttributes<HTMLParagraphElement> & {
   showMore: boolean;

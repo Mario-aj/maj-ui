@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { ReadMore } from '../src';
+import { ReadMore } from '.';
 
 export default {
   title: 'Components/ReadMore',

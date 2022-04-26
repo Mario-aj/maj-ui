@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
-import { Button, ButtonProps } from '..';
+import { Button } from '..';
 import { Container, Text } from './styles';
+import { SharedProps } from '../../shared/types';
 
-type Props = Pick<ButtonProps, 'appearance'> & {
+export type ReadMoreProps = SharedProps & {
   /**
    * Text to show in the component.
    */
@@ -30,7 +31,7 @@ type Props = Pick<ButtonProps, 'appearance'> & {
   textClassName?: string;
 };
 
-type GetTextToShowProps = Pick<Props, 'text' | 'min'>;
+type GetTextToShowProps = Pick<ReadMoreProps, 'text' | 'min'>;
 
 const MIN = 250;
 
@@ -56,7 +57,7 @@ const ReadMore = ({
   textClassName,
   readMoreText = 'Read more',
   readLessText = 'Read less',
-}: Props) => {
+}: ReadMoreProps) => {
   const [showMore, setShowMore] = useState(false);
   const [primaryText, secondaryText] = getTextToShow({ text, min });
 
@@ -84,5 +85,4 @@ const ReadMore = ({
   );
 };
 
-export type { Props as ReadMoreProps };
 export { ReadMore };
