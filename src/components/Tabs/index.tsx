@@ -1,7 +1,12 @@
-import * as React from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useCallback, useState } from 'react';
 
-import { Container, Item } from './styles';
+import { Container, Tab } from './styles';
 
+type TabProps = {
+  label: string | React.ReactNode;
+  id: string | number;
+};
 type Props = {
   /**
    * Class name of the component.
@@ -11,15 +16,22 @@ type Props = {
   /**
    * Array of tabs to render, each tab should have a label and an id.
    */
-  tabs: Array<{
-    label: string | React.ReactNode;
-    id: string | number;
-  }>;
+  tabs: Array<TabProps>;
 
   /**
    * The id of the tab that should be selected.
    */
   selectedTab?: string | number;
+
+  /**
+   *
+   */
+  disabledTab?: Array<string> | Array<number>;
+
+  /**
+   * Callback function that is called when a tab is selected. The selected tab is passed as an argument.
+   */
+  onSelect?: (selectedTab: TabProps) => void;
 
   /**
    * Color of the active tab.
@@ -43,22 +55,48 @@ type Props = {
     | 'light';
 };
 
-const Tabs = ({ tabs, selectedTab, textColor, ...props }: Props) => {
-  const [selected, setSelected] = React.useState(selectedTab);
+const Tabs = ({
+  tabs,
+  selectedTab,
+  textColor,
+  disabledTab = [],
+  onSelect,
+  ...props
+}: Props) => {
+  const [selected, setSelected] = useState(selectedTab);
+
+  const handleTabClick = useCallback(
+    (tab: TabProps) => {
+      if (!disabledTab.length) {
+        setSelected(tab.id);
+        onSelect && onSelect(tab);
+      }
+
+      if (disabledTab.length) {
+        // @ts-ignore
+        if (disabledTab.includes(tab.id)) return;
+        setSelected(tab.id);
+        onSelect && onSelect(tab);
+      }
+    },
+    [disabledTab]
+  );
 
   return (
     <Container>
       {tabs.map(tab => (
-        <Item
+        <Tab
           key={tab.id}
           isActive={selected === tab.id}
-          onClick={() => setSelected(tab.id)}
+          onClick={() => handleTabClick(tab)}
           color={textColor}
+          // @ts-ignore
+          disabled={disabledTab.includes(tab.id)}
           {...props}
         >
           <span>{tab.label}</span>
-          <div className="item-indicator" />
-        </Item>
+          <div className="tab-indicator" />
+        </Tab>
       ))}
     </Container>
   );
