@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { ProgressBarProps } from '.';
-import { colors } from '../../styles';
+import type { ProgressBarProps } from '.';
+import { colors } from '../../shared/styles';
 
 type ContainerProps = React.HTMLAttributes<HTMLDivElement> &
   Pick<ProgressBarProps, 'size'>;

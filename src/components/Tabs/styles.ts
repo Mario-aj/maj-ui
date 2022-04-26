@@ -2,13 +2,14 @@ import * as React from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { TabsProps } from '.';
+import type { TabsProps } from '.';
 
-import { textColor, colors } from '../../styles';
+import { textColor, colors } from '../../shared/styles';
 
-type ItemProps = React.HTMLAttributes<HTMLDivElement> &
+type TabProps = React.HTMLAttributes<HTMLDivElement> &
   Pick<TabsProps, 'indicatorColor' | 'appearance'> & {
     isActive: boolean;
+    disabled: boolean;
   };
 
 const containerStyle = () => css`
@@ -18,10 +19,12 @@ const containerStyle = () => css`
   align-items: center;
   gap: 14px;
   flex-wrap: wrap;
+
+  margin-bottom: 16px;
 `;
 
-const itemStyle = () => css`
-  label: container__item;
+const tabStyle = () => css`
+  label: container__tab;
 
   color: ${textColor.dark};
   user-select: none;
@@ -42,24 +45,24 @@ const itemStyle = () => css`
   }
 `;
 
-const itemActiveStyle = ({
+const tabActiveStyle = ({
   isActive,
   color,
   appearance = 'primary',
   indicatorColor,
-}: ItemProps) =>
+}: TabProps) =>
   isActive &&
   css`
-    label: container__item--active;
+    label: container__tab--active;
 
     color: ${color || colors[appearance].normal.default};
 
-    div[class*='item-indicator'] {
-      label: container__item--indicator;
+    div[class*='tab-indicator'] {
+      label: container__tab--indicator;
 
       display: block;
       position: relative;
-      bottom: -12px;
+      bottom: -8px;
       width: 100%;
       height: 2px;
       left: 0;
@@ -69,5 +72,14 @@ const itemActiveStyle = ({
     }
   `;
 
+const tabDisabledStyle = ({ disabled }: TabProps) =>
+  disabled &&
+  css`
+    label: container__tab--disabled;
+
+    opacity: 0.5;
+    cursor: not-allowed;
+  `;
+
 export const Container = styled('div')(containerStyle);
-export const Item = styled('div')(itemStyle, itemActiveStyle);
+export const Tab = styled('div')(tabStyle, tabActiveStyle, tabDisabledStyle);

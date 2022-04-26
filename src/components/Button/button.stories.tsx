@@ -2,7 +2,7 @@ import React from 'react';
 import { MdSend, MdRecommend } from 'react-icons/md';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Button } from '../src';
+import { Button } from '.';
 
 export default {
   title: 'Components/Button',

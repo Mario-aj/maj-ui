@@ -9,3 +9,6 @@ export type { ProgressBarProps } from './ProgressBar';
 
 export { Tabs } from './Tabs';
 export type { TabsProps } from './Tabs';
+
+export { ReadMore } from './ReadMore';
+export type { ReadMoreProps } from './ReadMore';

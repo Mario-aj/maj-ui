@@ -1,8 +1,8 @@
 import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { SpinnerProps } from '.';
-import { colors } from '../../styles';
+import type { SpinnerProps } from '.';
+import { colors } from '../../shared/styles';
 
 type ContainerProps = React.HTMLAttributes<HTMLDivElement> &
   Pick<SpinnerProps, 'appearance' | 'size'>;
