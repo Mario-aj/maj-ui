@@ -9,12 +9,12 @@ export default {
 } as ComponentMeta<typeof ReadMore>;
 
 const Template: ComponentStory<typeof ReadMore> = args => (
-  <div style={{ width: 250 }}>
+  <div style={{ width: 450 }}>
     <ReadMore {...args} />
   </div>
 );
 
-export const ReadMoreStory = Template.bind({});
-ReadMoreStory.args = {
+export const Normal = Template.bind({});
+Normal.args = {
   text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores rerum cumque fugiat numquam molestias perferendis atque, veritatis omnis cupiditate nisi ipsam et ab suscipit quae minima quasi ex tenetur maxime? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores rerum cumque fugiat numquam molestias perferendis atque, veritatis omnis cupiditate nisi ipsam et ab suscipit quae minima quasi ex tenetur maxime?',
 };

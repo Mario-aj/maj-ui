@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-import { Container } from './styles';
+import { Button, ButtonProps } from '..';
+import { Container, Text } from './styles';
 
-type Props = {
+type Props = Pick<ButtonProps, 'appearance'> & {
   /**
    * Text to show in the component.
    */
@@ -22,11 +23,6 @@ type Props = {
    * Text to show on the read less button.
    */
   readLessText?: string;
-
-  /**
-   * className to be applied to the read more/less button.
-   */
-  buttonClassName?: string;
 
   /**
    * className to be applied to the text.
@@ -56,8 +52,8 @@ function getTextToShow({ text, min = MIN }: GetTextToShowProps) {
 const ReadMore = ({
   text,
   min = MIN,
+  appearance,
   textClassName,
-  buttonClassName,
   readMoreText = 'Read more',
   readLessText = 'Read less',
 }: Props) => {
@@ -67,21 +63,21 @@ const ReadMore = ({
   const showPessadText = text.length <= min;
 
   return (
-    <Container title="Read more" aria-label="read more">
+    <Container title="read-more" aria-label="read-more">
       {showPessadText && <p className={textClassName}>{text}</p>}
       {!showPessadText && (
         <>
-          <p className={textClassName}>
-            {`${primaryText}${showMore ? secondaryText : '...'}`}
-          </p>
-          <button
-            type="button"
-            aria-label="read button"
-            className={buttonClassName}
+          <Text className={textClassName} showMore={showMore}>
+            {primaryText}
+            <span className="dots">...</span>
+            <span className="secondary-text">{secondaryText}</span>
+          </Text>
+          <Button
             onClick={() => setShowMore(current => !current)}
-          >
-            {showMore ? readLessText : readMoreText}
-          </button>
+            label={showMore ? readLessText : readMoreText}
+            appearance={appearance}
+            outlined
+          />
         </>
       )}
     </Container>
