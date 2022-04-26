@@ -22,5 +22,14 @@
     "jsx": "react"
   },
   "include": ["./src"],
-  "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.tsx"]
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.test.tsx",
+    "./src/**/*.stories.mdx",
+    "./src/**/*.stories.tsx",
+    "./src/**/*.stories.jsx",
+    "./src/**/*.stories.ts",
+    "./src/**/*.stories.js"
+  ]
 }
