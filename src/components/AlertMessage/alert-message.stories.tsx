@@ -7,6 +7,12 @@ import { AlertMessage } from '.';
 export default {
   title: 'Components/AlertMessage',
   component: AlertMessage,
+
+  argTypes: {
+    accent: {
+      control: 'select',
+    },
+  },
 } as ComponentMeta<typeof AlertMessage>;
 
 const Template: ComponentStory<typeof AlertMessage> = args => (
@@ -35,6 +41,13 @@ export const Error = Template.bind({});
 Error.args = {
   message: 'This is an error message',
   type: 'error',
+};
+
+export const AccentAlert = Template.bind({});
+AccentAlert.args = {
+  message: 'This is an warning message with left accent',
+  type: 'warning',
+  accent: 'left',
 };
 
 export const WithTitle = Template.bind({});
