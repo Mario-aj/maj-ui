@@ -33,7 +33,7 @@ export type AlertMessageProps = {
   /**
    * Function to be called when the close button is clicked
    */
-  onClose?: () => void | undefined;
+  closeFn?: () => void | undefined;
 
   /**
    * The icon to be displayed
@@ -53,7 +53,7 @@ const AlertMessage = ({
   title,
   message,
   type = 'info',
-  onClose = undefined,
+  closeFn = undefined,
   ...props
 }: AlertMessageProps) => {
   return (
@@ -63,9 +63,9 @@ const AlertMessage = ({
         {title && <h3>{title}</h3>}
         <p>{message}</p>
       </div>
-      {onClose && (
+      {closeFn && (
         <div id="close-button-wrapper">
-          <MdClose id="close-button" onClick={onClose} />
+          <MdClose id="close-button" onClick={closeFn} />
         </div>
       )}
     </Container>

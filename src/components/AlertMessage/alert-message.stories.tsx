@@ -48,7 +48,7 @@ export const WithCloseButton = Template.bind({});
 WithCloseButton.args = {
   message: 'This is an error message with close button',
   type: 'error',
-  onClose: () => {
+  closeFn: () => {
     alert('Close button clicked');
   },
 };

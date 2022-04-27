@@ -128,10 +128,10 @@ const withTitleStyles = ({ title }: ContainerProps) =>
   `;
 
 export const Container = styled('div')<ContainerProps>(
+  container,
   fullScreenStyles,
   withTitleStyles,
   successStyles,
   warningStyles,
-  errorStyles,
-  container
+  errorStyles
 );
