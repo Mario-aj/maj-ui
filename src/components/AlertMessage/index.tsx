@@ -39,6 +39,11 @@ export type AlertMessageProps = {
    * The icon to be displayed
    */
   icon?: React.ReactElement;
+
+  /**
+   *  The border position of the message.
+   */
+  accent?: 'top' | 'bottom' | 'left' | 'right';
 };
 
 const ICON_MAP = {

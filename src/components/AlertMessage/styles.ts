@@ -2,15 +2,13 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import React from 'react';
 
+import { AlertMessageProps } from '.';
 import { colors, textColor } from '../../shared/styles';
 
-type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
-  type: 'success' | 'warning' | 'error' | 'info';
-  full?: boolean;
-  title?: string;
-};
+type ContainerProps = React.HTMLAttributes<HTMLDivElement> &
+  Pick<AlertMessageProps, 'accent' | 'full' | 'title' | 'type'>;
 
-const container = () => css`
+const container = ({ accent }: ContainerProps) => css`
   label: container;
 
   display: flex;
@@ -22,6 +20,7 @@ const container = () => css`
   padding: 0.75rem 1rem;
   border-radius: 0.25rem;
   background: ${colors.primary.outlined.hovered};
+  ${accent && `border-${accent}: 4px solid ${colors.primary.normal.default}`};
 
   svg {
     flex-shrink: 0;
@@ -83,36 +82,39 @@ const fullScreenStyles = ({ full = false }: ContainerProps) =>
     }
   `;
 
-const successStyles = ({ type }: ContainerProps) =>
+const successStyles = ({ type, accent }: ContainerProps) =>
   type === 'success' &&
   css`
     label: container-type--success;
 
     background: ${colors.success.outlined.hovered};
+    ${accent && `border-${accent}: 4px solid ${colors.success.normal.default}`};
 
     svg {
       color: ${colors.success.normal.default};
     }
   `;
 
-const warningStyles = ({ type }: ContainerProps) =>
+const warningStyles = ({ type, accent }: ContainerProps) =>
   type === 'warning' &&
   css`
     label: container-type--warning;
 
     background: ${colors.warning.outlined.hovered};
+    ${accent && `border-${accent}: 4px solid ${colors.warning.normal.default}`};
 
     svg {
       color: ${colors.warning.normal.default};
     }
   `;
 
-const errorStyles = ({ type }: ContainerProps) =>
+const errorStyles = ({ type, accent }: ContainerProps) =>
   type === 'error' &&
   css`
     label: container-type--error;
 
     background: ${colors.danger.outlined.hovered};
+    ${accent && `border-${accent}: 4px solid ${colors.danger.normal.default}`};
 
     svg {
       color: ${colors.danger.normal.default};
