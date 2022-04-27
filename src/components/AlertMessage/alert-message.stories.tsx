@@ -44,14 +44,14 @@ WithTitle.args = {
   title: 'Error title',
 };
 
-// export const WithCloseButton = Template.bind({});
-// WithCloseButton.args = {
-//   message: 'This is an error message with close button',
-//   type: 'error',
-//   onClose: () => {
-//     alert('Close button clicked');
-//   },
-// };
+export const WithCloseButton = Template.bind({});
+WithCloseButton.args = {
+  message: 'This is an error message with close button',
+  type: 'error',
+  onClose: () => {
+    alert('Close button clicked');
+  },
+};
 
 export const WithCustomIcon = Template.bind({});
 WithCustomIcon.args = {
