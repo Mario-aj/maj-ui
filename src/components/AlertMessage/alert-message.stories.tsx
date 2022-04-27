@@ -7,12 +7,6 @@ import { AlertMessage } from '.';
 export default {
   title: 'Components/AlertMessage',
   component: AlertMessage,
-
-  argTypes: {
-    accent: {
-      control: 'select',
-    },
-  },
 } as ComponentMeta<typeof AlertMessage>;
 
 const Template: ComponentStory<typeof AlertMessage> = args => (
