@@ -58,18 +58,25 @@ const AlertMessage = ({
   title,
   message,
   type = 'info',
-  closeFn = undefined,
+  closeFn,
   ...props
 }: AlertMessageProps) => {
   return (
-    <Container title={title} type={type} role="alert" {...props}>
+    <Container
+      role="alert"
+      aria-atomic="true"
+      aria-live="assertive"
+      title={title}
+      type={type}
+      {...props}
+    >
       {icon || ICON_MAP[type]}
       <div>
         {title && <h3>{title}</h3>}
         <p>{message}</p>
       </div>
       {closeFn && (
-        <div id="close-button-wrapper">
+        <div id="close-button-wrapper" tabIndex={1}>
           <MdClose id="close-button" onClick={closeFn} />
         </div>
       )}
