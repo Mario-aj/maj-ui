@@ -4,7 +4,7 @@ import { Button } from '..';
 import { Container, Text } from './styles';
 import { SharedProps } from '../../shared/types';
 
-export type ReadMoreProps = SharedProps & {
+export type ReadMoreProps = {
   /**
    * Text to show in the component.
    */
@@ -29,6 +29,11 @@ export type ReadMoreProps = SharedProps & {
    * className to be applied to the text.
    */
   textClassName?: string;
+
+  /**
+   * Appearence of the component.
+   */
+  appearance?: SharedProps['appearance'];
 };
 
 type GetTextToShowProps = Pick<ReadMoreProps, 'text' | 'min'>;
@@ -53,7 +58,7 @@ function getTextToShow({ text, min = MIN }: GetTextToShowProps) {
 const ReadMore = ({
   text,
   min = MIN,
-  appearance,
+  appearance = 'primary',
   textClassName,
   readMoreText = 'Read more',
   readLessText = 'Read less',
