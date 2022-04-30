@@ -42,6 +42,6 @@ export const Sizes: ComponentStory<typeof Spinner> = () => (
     <Spinner appearance="danger" size="lg" />
     <Spinner appearance="warning" size="xl" />
     <Spinner appearance="secondary" size="2xl" />
-    <Spinner appearance="light" size="3xl" />
+    <Spinner appearance="secondary" size="3xl" />
   </div>
 );

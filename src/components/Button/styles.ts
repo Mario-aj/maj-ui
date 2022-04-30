@@ -86,14 +86,6 @@ const variantStyles = ({ appearance, outlined }: ContainerProps) => css`
       `}
 `;
 
-const lightStyles = ({ appearance }: ContainerProps) =>
-  appearance === 'light' &&
-  css`
-    label: container-light;
-
-    color: #4b5563;
-  `;
-
 const fullStyles = ({ full }: ContainerProps) =>
   full &&
   css`
@@ -130,7 +122,6 @@ const largeSizeStyles = ({ size }: ContainerProps) =>
 export const Container = styled('button')<ContainerProps>(
   container,
   variantStyles,
-  lightStyles,
   fullStyles,
   smallSizeStyles,
   largeSizeStyles

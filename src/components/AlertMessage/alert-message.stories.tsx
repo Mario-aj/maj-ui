@@ -1,4 +1,5 @@
 import React from 'react';
+import { IconType } from 'react-icons';
 import { MdCheck } from 'react-icons/md';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
@@ -64,6 +65,6 @@ export const WithCustomIcon = Template.bind({});
 WithCustomIcon.args = {
   message: 'This is an error message with close button',
   type: 'success',
-  icon: <MdCheck />,
+  icon: (props: IconType) => <MdCheck {...props} />,
   onClose: undefined,
 };
