@@ -108,8 +108,7 @@ const AlertMessage = ({
       {closeFn && (
         <button
           className={cx(
-            'cursor-pointer flex items-center justify-center ml-0.5 bg-transparent transition-colors duration-300 hover:bg-opacity-60  hover:bg-stone-300 rounded-full',
-            full && 'ml-auto'
+            'cursor-pointer ml-auto flex items-center justify-center bg-transparent transition-colors duration-300 hover:bg-opacity-60  hover:bg-stone-300 rounded-full'
           )}
           onClick={closeFn}
           id="close-button-wrapper"
