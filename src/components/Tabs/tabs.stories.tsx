@@ -33,7 +33,7 @@ WithDisabledTab.args = {
     { label: 'ITEM THREE', id: 3 },
   ],
   selectedTab: '1',
-  disabledTab: [3],
+  disabledTabs: [3],
 };
 
 export const GetSelecteTab = () => {
@@ -57,7 +57,7 @@ export const GetSelecteTab = () => {
         selectedTab="1"
         onSelect={handleSelect}
       />
-      <p>Selected tab: {selectedTab.label}</p>
+      <p style={{ marginTop: 20 }}>Selected tab: {selectedTab.label}</p>
     </div>
   );
 };

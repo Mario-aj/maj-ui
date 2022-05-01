@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useCallback, useState } from 'react';
 
-import { Container, Tab } from './styles';
 import { SharedProps } from '../../shared/types';
+import { cx, BG_APPEARANCE, TEXT_APPEARANCE } from '../../shared/helpers';
 
 type TabProps = {
   label: string | React.ReactNode;
@@ -27,7 +27,7 @@ export type TabsProps = {
   /**
    * The id list of the tabs that should be disabled.
    */
-  disabledTab?: Array<string> | Array<number>;
+  disabledTabs?: Array<string> | Array<number>;
 
   /**
    * Callback function that is called when a tab is selected. The selected tab is passed as an argument.
@@ -35,14 +35,14 @@ export type TabsProps = {
   onSelect?: (selectedTab: TabProps) => void;
 
   /**
-   * Color of the active tab.
-   */
-  indicatorColor?: string;
-
-  /**
-   * Color of the active tab text.
+   *  The tab's text color.
    */
   textColor?: string;
+
+  /**
+   * The tab's indicator color.
+   */
+  indicatorColor?: string;
 
   /**
    *  The appearance of the component.
@@ -55,39 +55,48 @@ const Tabs = ({
   onSelect,
   textColor,
   selectedTab,
-  disabledTab = [],
-  ...props
+  indicatorColor,
+  disabledTabs = [],
+  appearance = 'primary',
 }: TabsProps) => {
   const [selected, setSelected] = useState(selectedTab);
 
   const handleClick = useCallback(
     (tab: TabProps) => {
-      //@ts-ignore
-      if (disabledTab.includes(tab.id)) return;
+      if (disabledTabs.includes(tab.id as never)) return;
 
-      setSelected(tab.id);
       onSelect && onSelect(tab);
+      setSelected(tab.id);
     },
-    [disabledTab]
+    [disabledTabs]
   );
 
   return (
-    <Container>
+    <div className="flex flex-wrap items-center gap-4 mb-4">
       {tabs.map(tab => (
-        <Tab
+        <button
           key={tab.id}
-          isActive={selected === tab.id}
+          className={cx(
+            'border-none bg-transparent select-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 font-medium leading-5 text-base tracking-wide flex-shrink-0 transition-all duration-300 ease-in-out',
+            selected === tab.id && !appearance && TEXT_APPEARANCE.primary,
+            selected === tab.id && appearance && TEXT_APPEARANCE[appearance]
+          )}
           onClick={() => handleClick(tab)}
-          color={textColor}
-          // @ts-ignore
-          disabled={disabledTab.includes(tab.id)}
-          {...props}
+          disabled={disabledTabs.includes(tab.id as never)}
         >
-          <span>{tab.label}</span>
-          <div className="tab-indicator" />
-        </Tab>
+          <span className="inline-block px-3 py-0" style={{ color: textColor }}>
+            {tab.label}
+          </span>
+          <div
+            className={cx(
+              'block relative -bottom-2 left-0 w-full h-0.5 rounded-sm transition-all duration-300 ease-in-out',
+              selected === tab.id && appearance && BG_APPEARANCE[appearance]
+            )}
+            style={{ backgroundColor: indicatorColor }}
+          />
+        </button>
       ))}
-    </Container>
+    </div>
   );
 };
 
