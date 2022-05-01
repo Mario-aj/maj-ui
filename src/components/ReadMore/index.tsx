@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import { Button } from '..';
-import { Container, Text } from './styles';
 import { SharedProps } from '../../shared/types';
+import { cx } from '../../shared/helpers';
 
 export type ReadMoreProps = {
   /**
@@ -28,10 +28,10 @@ export type ReadMoreProps = {
   /**
    * className to be applied to the text.
    */
-  textClassName?: string;
+  className?: string;
 
   /**
-   * Appearence of the component.
+   * Appearence of the button.
    */
   appearance?: SharedProps['appearance'];
 };
@@ -58,27 +58,40 @@ function getTextToShow({ text, min = MIN }: GetTextToShowProps) {
 const ReadMore = ({
   text,
   min = MIN,
+  className,
   appearance = 'primary',
-  textClassName,
   readMoreText = 'Read more',
   readLessText = 'Read less',
 }: ReadMoreProps) => {
+  const showPessadText = text.length <= min;
   const [showMore, setShowMore] = useState(false);
   const [primaryText, secondaryText] = getTextToShow({ text, min });
 
-  const showPessadText = text.length <= min;
-
   return (
-    <Container title="read-more" aria-label="read-more">
-      {showPessadText && <p className={textClassName}>{text}</p>}
+    <div
+      className="flex flex-col w-full gap-4"
+      title="read-more"
+      aria-label="read-more"
+    >
+      {showPessadText && <p className={className}>{text}</p>}
       {!showPessadText && (
         <>
-          <Text className={textClassName} showMore={showMore}>
+          <p
+            className={cx(
+              'text-gray-800 font-normal text-base leading-5 font-roboto',
+              className
+            )}
+          >
             {primaryText}
-            <span className="dots">...</span>
-            <span className="secondary-text">{secondaryText}</span>
-          </Text>
+            <span className={cx(showMore && 'hidden', !showMore && 'inline')}>
+              ...
+            </span>
+            <span className={cx(showMore && 'inline', !showMore && 'hidden')}>
+              {secondaryText}
+            </span>
+          </p>
           <Button
+            className="self-start border-none hover:bg-blue-50"
             onClick={() => setShowMore(current => !current)}
             label={showMore ? readLessText : readMoreText}
             appearance={appearance}
@@ -86,7 +99,7 @@ const ReadMore = ({
           />
         </>
       )}
-    </Container>
+    </div>
   );
 };
 

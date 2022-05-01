@@ -1,18 +1,29 @@
-# maj-ui
+# Welcome to maj-ui
 
--My daily React-based UI components for the web.
+maj-ui is a React-based UI toolkit for the web.<br />
+This page describes how to get started building an application with maj-ui.
 
 ## Documentation.
 
 You can find the doc [here](https://mario-aj.github.io/maj-ui/)
 
-## Installation
+# Installation
 
-```
-yarn add maj-ui
+Install it with package manager npm or yarn (Yarn is used in this example):
+
+```bash
+  yarn add maj-ui
 ```
 
-## Usage
+Then, you need to add a css file to your entry point file: (`src/index.tsx` or `src/index.jsx`)
+
+```jsx
+import 'maj-ui/dist/index.css';
+```
+
+# Usage
+
+Using Button component form package.
 
 ```jsx
 import { Button } from 'maj-ui';
@@ -21,7 +32,7 @@ const IncrementButton = () => {
   return (
     <Button
       label="increment"
-      startIcon={<Plus />}
+      startIcon={props => <Plus {...props} />}
       appearence="primary"
       onClick={onIncrement}
     />

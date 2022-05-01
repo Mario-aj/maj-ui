@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Container, Progress } from './styles';
 import { SharedProps } from '../../shared/types';
+import { cx, BG_APPEARANCE } from '../../shared/helpers';
 
 export type ProgressBarProps = SharedProps & {
   /**
-   * List of class names to pass along to spinner component.
+   * List of class names to pass along to progress.
    */
   className?: string;
 
@@ -18,6 +18,18 @@ export type ProgressBarProps = SharedProps & {
    * Progress height size
    */
   size?: 'sm' | 'md' | 'lg' | 'xl';
+
+  /**
+   * Progress custom color appearance.
+   */
+  customColor?: string;
+};
+
+const sizes = {
+  sm: 'h-1',
+  md: 'h-2',
+  lg: 'h-3',
+  xl: 'h-4',
 };
 
 const progressValue = (value: number) => {
@@ -35,6 +47,7 @@ const ProgressBar = ({
   value,
   className,
   size = 'md',
+  customColor,
 }: ProgressBarProps) => {
   if (!appearance)
     throw new Error(
@@ -44,9 +57,17 @@ const ProgressBar = ({
   value = progressValue(value);
 
   return (
-    <Container size={size}>
-      <Progress appearance={appearance} value={value} className={className} />
-    </Container>
+    <div
+      className={cx('w-full bg-gray-300 rounded-lg', sizes[size], className)}
+    >
+      <div
+        className={cx(
+          'h-full rounded-lg overflow-hidden',
+          BG_APPEARANCE[appearance]
+        )}
+        style={{ width: `${value}%`, background: customColor }}
+      />
+    </div>
   );
 };
 
