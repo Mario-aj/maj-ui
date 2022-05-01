@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 import * as React from 'react';
-import { Spinner } from '..';
 
-import { Container } from './styles';
+import { Spinner } from '..';
+import { composeClassName } from './styles';
 import { SharedProps } from '../../shared/types';
-import { cx } from '../../shared/helpers';
 
 export type ButtonProps = SharedProps & {
   /**
@@ -65,35 +64,43 @@ export type ButtonProps = SharedProps & {
 };
 
 const Button = ({
+  full,
   label,
+  onClick,
   endIcon,
   startIcon,
-  type = 'button',
+  className,
   size = 'md',
+  type = 'button',
   loading = false,
   disabled = false,
   outlined = false,
   appearance = 'primary',
-  ...props
 }: ButtonProps) => {
   if (!appearance)
     throw new Error(
       'Button appearence must be one of this [primary, secondary, success, warning, danger, none]'
     );
 
-  const spinnerAppearance = outlined && !disabled ? appearance : 'primary';
+  const spinnerAppearance = outlined && !disabled ? appearance : 'secondary';
+  const composedClassName = composeClassName({
+    full,
+    size,
+    outlined,
+    className,
+    appearance,
+  });
 
   return (
     <button
-      className={cx(
-        'flex items-center justify-center gap-2 uppercase select-none border-none whitespace-nowrap py-2.5 px-4 rounder cursor-pointer text-sm leading-5 font-medium text-white tracking-wide transition-all duration-300 ease-in-out active:shadow-inner disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed font'
-      )}
-      // appearance={appearance}
-      // outlined={outlined}
+      className={composedClassName}
+      aria-disabled={disabled}
+      aria-labelledby={label}
+      aria-pressed={disabled}
       disabled={disabled}
+      onClick={onClick}
+      tabIndex={0}
       type={type}
-      // size={size}
-      {...props}
     >
       {loading && <Spinner appearance={spinnerAppearance} size="sm" />}
       {!loading && startIcon && startIcon}

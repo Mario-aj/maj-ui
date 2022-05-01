@@ -27,6 +27,12 @@ Secondary.args = {
   appearance: 'secondary',
 };
 
+export const Success = Template.bind({});
+Success.args = {
+  label: 'SUCCESS',
+  appearance: 'success',
+};
+
 export const Warning = Template.bind({});
 Warning.args = {
   label: 'WARNING',
@@ -37,18 +43,6 @@ export const Danger = Template.bind({});
 Danger.args = {
   label: 'DANGER',
   appearance: 'danger',
-};
-
-export const Success = Template.bind({});
-Success.args = {
-  label: 'SUCCESS',
-  appearance: 'success',
-};
-
-export const None = Template.bind({});
-None.args = {
-  label: 'LIGHT',
-  appearance: 'light',
 };
 
 export const StartIcon = Template.bind({});

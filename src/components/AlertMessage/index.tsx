@@ -6,7 +6,7 @@ import {
   MdError,
   MdClose,
 } from 'react-icons/md';
-import { cx } from '../..//shared/helpers';
+import { cx } from '../../shared/helpers';
 
 export type AlertMessageProps = {
   /**
@@ -66,7 +66,7 @@ const ACCENTS = {
   right: 'border-r-4 border-solid',
 };
 
-const composeClasses = ({
+const composeClassName = ({
   type = 'info',
   title,
   full,
@@ -74,10 +74,10 @@ const composeClasses = ({
 }: Omit<AlertMessageProps, 'message'>) =>
   cx(
     'flex items-center justify-start rounded gap-2 relative py-3 px-4 border-0',
-    TYPES[type],
     title && '!items-start',
     full && 'w-full',
-    accent && ACCENTS[accent]
+    accent && ACCENTS[accent],
+    TYPES[type]
   );
 
 const AlertMessage = ({
@@ -90,6 +90,7 @@ const AlertMessage = ({
   type = 'info',
 }: AlertMessageProps) => {
   const Icon = icon || ICON_MAP[type];
+  const composedClassName = composeClassName({ type, title, full, accent });
 
   return (
     <div
@@ -97,7 +98,7 @@ const AlertMessage = ({
       aria-atomic="true"
       aria-live="assertive"
       title={title}
-      className={composeClasses({ type, title, full, accent })}
+      className={composedClassName}
     >
       <Icon className="flex-shrink-0 w-6 h-6" />
       <div className="flex flex-col gap-1 text-gray-800">
