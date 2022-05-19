@@ -23,6 +23,7 @@
     "node_modules",
     "**/*.spec.*",
     "**/*.test.*",
-    "./src/**/*.stories.*"
+    "./src/**/*.stories.*",
+    "**/__tests__/**"
   ]
 }
