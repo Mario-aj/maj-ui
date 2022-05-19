@@ -12,7 +12,7 @@ export type AlertMessageProps = {
   /**
    * The message to be displayed
    */
-  message: string;
+  children: React.ReactNode;
 
   /**
    * The type of the message
@@ -43,6 +43,11 @@ export type AlertMessageProps = {
    *  The border position of the message.
    */
   accent?: 'top' | 'bottom' | 'left' | 'right';
+
+  /**
+   * Define either the icon should be displayed or not.
+   */
+  noIcon?: boolean;
 };
 
 const ICON_MAP = {
@@ -71,7 +76,7 @@ const composeClassName = ({
   title,
   full,
   accent,
-}: Omit<AlertMessageProps, 'message'>) =>
+}: Omit<AlertMessageProps, 'children'>) =>
   cx(
     'flex items-center justify-start rounded gap-2 relative py-3 px-4 border-0',
     title && '!items-start',
@@ -86,8 +91,9 @@ const AlertMessage = ({
   title,
   accent,
   closeFn,
-  message,
+  children,
   type = 'info',
+  noIcon = false,
 }: AlertMessageProps) => {
   const Icon = icon || ICON_MAP[type];
   const composedClassName = composeClassName({ type, title, full, accent });
@@ -100,10 +106,10 @@ const AlertMessage = ({
       title={title}
       className={composedClassName}
     >
-      <Icon className="flex-shrink-0 w-6 h-6" />
+      {!noIcon && <Icon className="flex-shrink-0 w-6 h-6" />}
       <div className="flex flex-col gap-1 text-gray-800">
         {title && <h3 className="p-0 m-0 font-medium">{title}</h3>}
-        <p className="text-base">{message}</p>
+        <span className="text-base">{children}</span>
       </div>
       {closeFn && (
         <button
