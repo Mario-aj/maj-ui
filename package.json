@@ -63,7 +63,7 @@
   "scripts": {
     "dev": "start-storybook -p 6006",
     "test": "jest --watchAll",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.md --fix",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
     "build": "build-storybook",
     "build-tailwind": "npx tailwindcss -o ./dist/index.css --minify",
     "tsc": "rm -rf dist && tsc && yarn build-tailwind"
