@@ -3,7 +3,7 @@ import React from 'react';
 import { SharedProps } from '../../shared/types';
 import { cx } from '../../shared/helpers';
 
-export type SpinnerProps = SharedProps & {
+export type SpinnerProps = {
   /**
    * List of class names to pass along to spinner component.
    */
@@ -21,6 +21,11 @@ export type SpinnerProps = SharedProps & {
    * Spinner custom color appearance.
    */
   customColor?: string;
+
+  /**
+   * Spinner appearance.
+   */
+  appearance?: SharedProps['appearance'];
 };
 
 const sizes = {
@@ -53,6 +58,7 @@ const Spinner = ({
 
   return (
     <div
+      title={`${appearance}-spinner`}
       className={cx(
         'border-2 border-solid border-gray-300 rounded-full animate-spin_faster',
         spinnerAppearance[appearance],
