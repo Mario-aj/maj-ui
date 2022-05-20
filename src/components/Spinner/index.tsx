@@ -25,7 +25,7 @@ export type SpinnerProps = {
   /**
    * Spinner appearance.
    */
-  appearance?: SharedProps['appearance'];
+  appearance: SharedProps['appearance'] | null;
 };
 
 const sizes = {
@@ -47,13 +47,13 @@ const spinnerAppearance = {
 
 const Spinner = ({
   className,
+  appearance,
   customColor,
   size = 'md',
-  appearance = 'primary',
 }: SpinnerProps) => {
-  if (!appearance)
+  if (!appearance && !customColor)
     throw new Error(
-      'Spinner appearence must be one of this [primary, secondary, success, warning, danger, light]'
+      'Spinner appearence must be one of this [primary, secondary, success, warning, danger, light] or custom color must be provided'
     );
 
   return (
@@ -61,7 +61,7 @@ const Spinner = ({
       title={`${appearance}-spinner`}
       className={cx(
         'border-2 border-solid border-gray-300 rounded-full animate-spin_faster',
-        spinnerAppearance[appearance],
+        appearance && spinnerAppearance[appearance],
         sizes[size],
         className
       )}
