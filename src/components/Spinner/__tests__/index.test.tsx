@@ -2,6 +2,15 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Spinner } from '..';
 
+beforeAll(() => {
+  jest.spyOn(console, 'error').mockImplementation(() => {});
+});
+
+afterAll(() => {
+  //@ts-ignore
+  console.error.mockRestore();
+});
+
 describe(Spinner, () => {
   it('snapshots', () => {
     const { container } = render(<Spinner appearance="primary" />);
