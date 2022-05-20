@@ -19,11 +19,5 @@
     "jsx": "react"
   },
   "include": ["./src"],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.*",
-    "**/*.test.*",
-    "./src/**/*.stories.*",
-    "**/__tests__/**"
-  ]
+  "exclude": ["node_modules", "./src/**/*.stories.*", "**/__tests__/**"]
 }
