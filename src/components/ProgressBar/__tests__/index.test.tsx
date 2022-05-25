@@ -92,7 +92,7 @@ describe(ProgressBar, () => {
 
   it('should throw error whether appearance and customColor are not provided', () => {
     expect(() => {
-      render(<ProgressBar appearance="danger" value={75} />);
+      render(<ProgressBar value={75} />);
     }).toThrowError(
       'ProgressBar appearence must be one of this [primary, secondary, success, warning, danger, light] or customColor must be provided'
     );
