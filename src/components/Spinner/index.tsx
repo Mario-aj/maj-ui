@@ -3,7 +3,7 @@ import React from 'react';
 import { SharedProps } from '../../shared/types';
 import { cx } from '../../shared/helpers';
 
-export type SpinnerProps = SharedProps & {
+export type SpinnerProps = {
   /**
    * List of class names to pass along to spinner component.
    */
@@ -21,6 +21,11 @@ export type SpinnerProps = SharedProps & {
    * Spinner custom color appearance.
    */
   customColor?: string;
+
+  /**
+   * Spinner appearance.
+   */
+  appearance?: SharedProps['appearance'];
 };
 
 const sizes = {
@@ -42,20 +47,22 @@ const spinnerAppearance = {
 
 const Spinner = ({
   className,
+  appearance,
   customColor,
   size = 'md',
-  appearance = 'primary',
 }: SpinnerProps) => {
-  if (!appearance)
+  if (!appearance && !customColor)
     throw new Error(
-      'Spinner appearence must be one of this [primary, secondary, success, warning, danger, light]'
+      'Spinner appearence must be one of this [primary, secondary, success, warning, danger, light] or custom color must be provided'
     );
 
   return (
-    <div
+    <section
+      aria-label="spinner"
+      title={appearance ? `${appearance}-spinner` : 'spinner'}
       className={cx(
         'border-2 border-solid border-gray-300 rounded-full animate-spin_faster',
-        spinnerAppearance[appearance],
+        appearance && spinnerAppearance[appearance],
         sizes[size],
         className
       )}
