@@ -62,7 +62,7 @@
   },
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "test": "jest --watchAll",
+    "test": "jest --watch",
     "test-coverage": "yarn run test --coverage",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
     "build": "build-storybook",

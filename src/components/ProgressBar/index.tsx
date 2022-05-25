@@ -3,7 +3,7 @@ import React from 'react';
 import { SharedProps } from '../../shared/types';
 import { cx, BG_APPEARANCE } from '../../shared/helpers';
 
-export type ProgressBarProps = SharedProps & {
+export type ProgressBarProps = {
   /**
    * List of class names to pass along to progress.
    */
@@ -23,6 +23,11 @@ export type ProgressBarProps = SharedProps & {
    * Progress custom color appearance.
    */
   customColor?: string;
+
+  /**
+   * Progress background color appearance.
+   */
+  appearance?: SharedProps['appearance'];
 };
 
 const sizes = {
@@ -33,41 +38,42 @@ const sizes = {
 };
 
 const progressValue = (value: number) => {
-  if (value > 100) {
-    return 100;
-  } else if (value < 0) {
-    return 0;
-  }
+  if (value > 100) return 100;
+
+  if (value < 0) return 0;
 
   return value;
 };
 
 const ProgressBar = ({
-  appearance,
   value,
   className,
-  size = 'md',
+  appearance,
   customColor,
+  size = 'md',
 }: ProgressBarProps) => {
-  if (!appearance)
+  if (!appearance && !customColor)
     throw new Error(
-      'ProgressBar appearence must be one of this [primary, secondary, success, warning, danger, light]'
+      'ProgressBar appearence must be one of this [primary, secondary, success, warning, danger, light] or customColor must be provided'
     );
 
   value = progressValue(value);
 
   return (
-    <div
+    <section
+      aria-label="progress-bar"
+      role="progressbar"
       className={cx('w-full bg-gray-300 rounded-lg', sizes[size], className)}
     >
       <div
+        aria-label="progress"
         className={cx(
           'h-full rounded-lg overflow-hidden',
-          BG_APPEARANCE[appearance]
+          appearance && BG_APPEARANCE[appearance]
         )}
         style={{ width: `${value}%`, background: customColor }}
       />
-    </div>
+    </section>
   );
 };
 

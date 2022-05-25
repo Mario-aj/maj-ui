@@ -9,4 +9,5 @@ module.exports = {
       lines: 85,
     },
   },
+  collectCoverageFrom: ['**/src/**/*.tsx'],
 };
