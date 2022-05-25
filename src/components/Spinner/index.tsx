@@ -25,7 +25,7 @@ export type SpinnerProps = {
   /**
    * Spinner appearance.
    */
-  appearance: SharedProps['appearance'] | null;
+  appearance?: SharedProps['appearance'];
 };
 
 const sizes = {
@@ -57,8 +57,9 @@ const Spinner = ({
     );
 
   return (
-    <div
-      title={`${appearance}-spinner`}
+    <section
+      aria-label="spinner"
+      title={appearance ? `${appearance}-spinner` : 'spinner'}
       className={cx(
         'border-2 border-solid border-gray-300 rounded-full animate-spin_faster',
         appearance && spinnerAppearance[appearance],

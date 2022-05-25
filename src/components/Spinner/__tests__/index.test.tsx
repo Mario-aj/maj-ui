@@ -14,7 +14,15 @@ afterAll(() => {
 describe(Spinner, () => {
   it('snapshots', () => {
     const { container } = render(<Spinner appearance="primary" />);
-    expect(container).toMatchSnapshot();
+    expect(container).toMatchInlineSnapshot(`
+      <div>
+        <section
+          aria-label="spinner"
+          class="border-2 border-solid border-gray-300 rounded-full animate-spin_faster border-r-blue-600 w-8 h-8"
+          title="primary-spinner"
+        />
+      </div>
+    `);
   });
 
   it('Should render correctly', () => {
@@ -36,9 +44,9 @@ describe(Spinner, () => {
 
   it('Should render with custom color', () => {
     const customColor = '#daa1a1';
-    render(<Spinner appearance="primary" customColor={customColor} />);
+    render(<Spinner customColor={customColor} />);
 
-    expect(screen.getByTitle(/primary-spinner/i)).toHaveAttribute(
+    expect(screen.getByTitle(/spinner/i)).toHaveAttribute(
       'style',
       'border-right-color: ' + customColor + ';'
     );
@@ -52,7 +60,7 @@ describe(Spinner, () => {
 
   it('Should render throw error', () => {
     expect(() => {
-      render(<Spinner appearance={null} />);
+      render(<Spinner />);
     }).toThrowError(
       'Spinner appearence must be one of this [primary, secondary, success, warning, danger, light] or custom color must be provided'
     );
