@@ -3,6 +3,17 @@ import { render, screen } from '@testing-library/react';
 
 import { ProgressBar } from '..';
 
+beforeAll(() => {
+  jest.spyOn(console, 'error').mockImplementation(() => {});
+});
+
+afterAll(() => {
+  //@ts-ignore
+  console.error.mockRestore();
+});
+
+afterEach(jest.clearAllMocks);
+
 describe(ProgressBar, () => {
   it('renders correctly', () => {
     render(<ProgressBar value={50} appearance="primary" />);
